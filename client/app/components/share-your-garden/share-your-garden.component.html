@@ -1,0 +1,50 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col title">
+      <h2>Partager son jardin</h2>
+    </div>
+  </div>
+
+  <form class="formular">
+
+    <div class="row">
+      <div class="col upload">
+        <input class="btn btn-info input-upload"  (click)="getValue(uploaded-image)" [(ngModel)]="uploaded_image" name="upload" type="file" value="Button" required>
+
+        <div *ngIf='uploaded-image' class="miniature">
+          <img src="uploaded_image" alt="uploaded-image" title="Uploaded image"/>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col experience">
+        <textarea class="txt-experience" placeholder="Tu peux aider les autres en partageant ton expérience .." rows="4" cols="38" required></textarea>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col time">
+        <textarea class="txt-time" placeholder="Durée de la culture .." rows="2" cols="38" required></textarea>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col seed">
+        <select class="seed-type" required>
+          <option selected> - Choisir un type -</option>
+          <option>Salade</option>
+          <option>Tomate</option>
+          <option>Oigon</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col submit">
+        <input class="btn btn-success" type="submit" value="Poster !">
+      </div>
+    </div>
+  </form>
+</div>
