@@ -1,34 +1,55 @@
 <div class="container-fluid divLogo">
-  <div class="row"> 
-      <div class="col-12 center">
-          <a routerLink="index.html"></a><img class="img-fluid logo" src="../../../assets/img/logo_final.png" alt="Troc ta Graine">
-      </div>
-  </div>
+    <!-- Affiché sur desktop -->
+    <div class="col-12 center">
+        <a routerLink="index.html"></a><img class="img-fluid logo" src="../../../assets/img/logo_final.png" alt="Troc ta Graine">
+    </div>
+
+    
+    <!-- Affiché sur mobile -->
+    <nav class="navbar navbar-light navbar-expand-lg">
+        <a class="navbar-brand logo" routerLink="index.html">
+            <img class="img-fluid" src="../../../assets/img/logo_final.png" alt="Troc ta Graine">
+        </a>
+
+        <button (click)="toggleState(); getValue();" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link" routerLink="home">Accueil</a>
+            <a class="nav-item nav-link" routerLink="about">À propos</a>
+            <a class="nav-item nav-link" routerLink="ads">Annonces</a>
+            <a class="nav-item nav-link" routerLink="login">Se connecter</a>
+            <div class="dropdown-divider"></div>
+            <a class="nav-item nav-link" routerLink="shareYourGarden">Partage ton jardin</a>
+          </div>
+        </div>
+    </nav>
 </div>
 
 <!-- NAVIGATION -->
-<div class="container navigationBarreSimple">
+<div *ngIf="visible" [style.height]="visible ? '50px' : '0'" class="navigationBarreSimple">
   <div class="row">
-      <div class="col">
-          <a routerLink="home">Accueil</a>
-      </div>
+    <div class="col">
+      <a routerLink="home">Home</a>
+    </div>
 
-      <div class="col">
-          <a routerLink="about">À propos</a>
-      </div>
+    <div class="col">
+      <a routerLink="about">About</a>
+    </div>
 
-      <div class="col">
-          <a routerLink="ads">Annonces</a>
-      </div>
+    <div class="col">
+      <a routerLink="ads">Ads</a>
+    </div>
 
-      <div class="col">
-          <a routerLink="login">Se connecter</a>
-      </div>
+    <div class="col">
+      <a routerLink="login">Login</a>
+    </div>
 
-      <div class="col">
-        <a routerLink="shareYourGarden">Partage ton jardin</a>
+    <div class="col">
+      <a routerLink="shareYourGarden">Share</a>
     </div>
   </div>
-</div>
 
-<hr>
+  <hr>
+</div>

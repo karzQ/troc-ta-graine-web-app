@@ -1,34 +1,83 @@
-.divLogo {
-	padding: 20px 0 20px 0; 
-    background-color: #FFF4CA;
 
-    .center {
+// MEDIA QUERIES : Mobile IphoneX
+@media screen and (max-width: 700px){
+    .divLogo {
+        padding: 5px; 
+        background-color: #FFF4CA;
+    
+        .center {
+            display: none;
+        }
+    
+        img {
+            width: 100px;
+            align-content: center;
+        }
+    }
+    
+    .navigationBarreSimple {
+        transition: all 0.2s ease 0s;
+
         text-align: center;
-
-        .logo {
-            width: 200px;
-        }
-    }
-
-    img {
-        align-content: center;
+    
+        padding: 15px 0 0 0;
+        
+        font-size: 0.8em;
+        color: #225B25;
+        
+        a {
+            transition: all 0.3s ease 0s;
+            text-decoration: none;
+    
+            :hover {
+                color: black;
+            }
+        }    
     }
 }
 
-.navigationBarreSimple {
-    text-align: center;
 
-    padding: 45px 0 0 0;
+// MEDIA QUERIES : Desktop
+@media screen and (min-width: 701px) {
+    .divLogo {
+        padding: 20px 0 20px 0; 
+        background-color: #FFF4CA;
     
-    font-size: 1.0em;
-    color: #225B25;
+        .center {
+            text-align: center;
     
-    a {
-        transition: all 0.3s ease 0s;
-        text-decoration: none;
-
-        :hover {
-            color: black;
+            .logo {
+                width: 200px;
+            }
         }
-    }    
+    
+        img {
+            align-content: center;
+        }
+    }
+
+    .navbar{
+        visibility: hidden;
+        display: none;
+        
+    }
+    
+    .navigationBarreSimple {
+        text-align: center;
+    
+        padding: 20px 0 0 0;
+        
+        font-size: 1.0em;
+        color: #225B25;
+        
+        a {
+            transition: all 0.3s ease 0s;
+            text-decoration: none;
+    
+            :hover {
+                color: black;
+            }
+        }    
+    }
 }
+

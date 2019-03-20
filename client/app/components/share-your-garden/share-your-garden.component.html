@@ -10,7 +10,7 @@
 
     <div class="row">
       <div class="col upload">
-        <input class="btn btn-info input-upload"  (click)="getValue(uploaded_image)" [(ngModel)]="uploaded_image" name="upload" type="file" value="Button" required>
+        <input class="btn btn-info form-control-file input-upload"  (click)="getValue(uploaded_image)" [(ngModel)]="uploaded_image" name="upload" type="file" value="Button" required>
 
         <div *ngIf='uploaded_image' class="miniature">
           <img [src]="uploaded_image" alt="uploaded-image" title="Uploaded image"/>
@@ -19,25 +19,32 @@
     </div>
 
     <div class="row">
-      <div class="col experience">
-        <textarea class="txt-experience" placeholder="Tu peux aider les autres en partageant ton expérience .." rows="4" cols="38" required></textarea>
+      <div class="col">
+        <textarea class="experience" placeholder="Tu peux aider les autres en partageant ton expérience .. 1000 caractères maximums." maxlength="1000" required></textarea>
       </div>
     </div>
 
     <div class="row">
-      <div class="col time">
-        <textarea class="txt-time" placeholder="Durée de la culture .." rows="2" cols="38" required></textarea>
+      <div class="col">
+        <textarea class="time" placeholder="Durée de la culture .. 250 caractères maximums." maxlength="250" required></textarea>
       </div>
     </div>
 
     <div class="row">
-      <div class="col seed">
-        <select class="seed-type" required>
-          <option selected> - Choisir un type -</option>
-          <option value="Salade">Salade</option>
-          <option value="Tomate">Tomate</option>
-          <option value="Oignon">Oigon</option>
-        </select>
+      <div class="col">
+
+        <div class="input-group seed">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01">Options</label>
+          </div>
+          
+          <select class="form-control" id="inputGroupSelect01" required>
+            <option selected> - Choisir un type -</option>
+            <option value="Salade">Salade</option>
+            <option value="Tomate">Tomate</option>
+            <option value="Oignon">Oigon</option>
+          </select>
+        </div>
       </div>
     </div>
 
