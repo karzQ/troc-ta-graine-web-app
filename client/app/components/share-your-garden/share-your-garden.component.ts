@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Garden } from '../../models/class/garden';
+import { gardens } from '../../models/mocks/garden-mock';
 
 @Component({
   selector: 'app-share-your-garden',
@@ -7,16 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShareYourGardenComponent implements OnInit {
 
-  uploaded_image;
+  gardens: Garden[] = [];
 
   constructor() { }
 
   ngOnInit() {
+    this.gardens = gardens;
   }
-
-  getValue(test: any): void {
-    console.log(test);
-  }
-
   
 }

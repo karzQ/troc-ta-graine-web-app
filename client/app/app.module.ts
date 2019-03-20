@@ -16,10 +16,13 @@ import { LoginComponent } from './components/login/login.component';
 import { NotificationComponent } from './components/notification/notification.component';
 import { ShareYourGardenComponent } from './components/share-your-garden/share-your-garden.component';
 import { AdDetailComponent } from './components/ads/ad-detail/ad-detail.component';
-import { GardenAdsComponent } from './components/share-your-garden/garden-ads/garden-ads.component';
 import { UnauthorizedComponent } from './components/unauthorized/unauthorized.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { ForgottenPwdComponent } from './components/forgotten-pwd/forgotten-pwd.component';
+import { GardenListComponent } from './components/share-your-garden/garden-list/garden-list.component';
+import { GardenDetailComponent } from './components/share-your-garden/garden-detail/garden-detail.component';
+import { GardenFormularComponent } from './components/share-your-garden/garden-formular/garden-formular.component';
+import { GardenComponent } from './components/share-your-garden/garden/garden.component';
 
 @NgModule({
   declarations: [
@@ -35,10 +38,13 @@ import { ForgottenPwdComponent } from './components/forgotten-pwd/forgotten-pwd.
     NotificationComponent,
     ShareYourGardenComponent,
     AdDetailComponent,
-    GardenAdsComponent,
     UnauthorizedComponent,
     RegistrationComponent,
-    ForgottenPwdComponent
+    ForgottenPwdComponent,
+    GardenListComponent,
+    GardenDetailComponent,
+    GardenFormularComponent,
+    GardenComponent,
   ],
 
   imports: [

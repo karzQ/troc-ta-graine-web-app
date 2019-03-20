@@ -7,6 +7,7 @@ import { ShareYourGardenComponent } from './components/share-your-garden/share-y
 import { AdDetailComponent } from './components/ads/ad-detail/ad-detail.component';
 import { DocumentationComponent } from './components/documentation/documentation.component';
 import { UnauthorizedComponent } from './components/unauthorized/unauthorized.component';
+import { GardenFormularComponent } from './components/share-your-garden/garden-formular/garden-formular.component';
 
 export const routes: Routes = [
     { path: '', children: [
@@ -16,7 +17,8 @@ export const routes: Routes = [
         { path: 'documentation', component: DocumentationComponent },
         { path: 'ads', component: AdsComponent },
         { path: 'ads/:id', component: AdDetailComponent },
-        { path: 'shareYourGarden', component: ShareYourGardenComponent },
+        { path: 'share-your-garden', component: ShareYourGardenComponent },
+        { path: 'garden-formular', component: GardenFormularComponent },
         { path: '', redirectTo: 'home', pathMatch: 'full'  },
         { path: '**', component: UnauthorizedComponent },
     ]}
