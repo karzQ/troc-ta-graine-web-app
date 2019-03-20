@@ -17,7 +17,7 @@ import { NotificationComponent } from './components/notification/notification.co
 import { ShareYourGardenComponent } from './components/share-your-garden/share-your-garden.component';
 import { AdDetailComponent } from './components/ads/ad-detail/ad-detail.component';
 import { GardenAdsComponent } from './components/share-your-garden/garden-ads/garden-ads.component';
-import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
+import { UnauthorizedComponent } from './components/unauthorized/unauthorized.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +43,9 @@ import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
     FormsModule
   ],
 
-  providers: [],
+  providers: [
+    
+  ],
 
   bootstrap: [AppComponent]
 })

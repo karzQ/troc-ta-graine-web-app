@@ -13,7 +13,7 @@
         <input class="btn btn-info input-upload"  (click)="getValue(uploaded_image)" [(ngModel)]="uploaded_image" name="upload" type="file" value="Button" required>
 
         <div *ngIf='uploaded_image' class="miniature">
-          <img src="uploaded_image" alt="uploaded-image" title="Uploaded image"/>
+          <img [src]="uploaded_image" alt="uploaded-image" title="Uploaded image"/>
         </div>
       </div>
     </div>
@@ -34,9 +34,9 @@
       <div class="col seed">
         <select class="seed-type" required>
           <option selected> - Choisir un type -</option>
-          <option>Salade</option>
-          <option>Tomate</option>
-          <option>Oigon</option>
+          <option value="Salade">Salade</option>
+          <option value="Tomate">Tomate</option>
+          <option value="Oignon">Oigon</option>
         </select>
       </div>
     </div>
