@@ -10,9 +10,9 @@
 
     <div class="row">
       <div class="col upload">
-        <input class="btn btn-info input-upload"  (click)="getValue(uploaded-image)" [(ngModel)]="uploaded_image" name="upload" type="file" value="Button" required>
+        <input class="btn btn-info input-upload"  (click)="getValue(uploaded_image)" [(ngModel)]="uploaded_image" name="upload" type="file" value="Button" required>
 
-        <div *ngIf='uploaded-image' class="miniature">
+        <div *ngIf='uploaded_image' class="miniature">
           <img src="uploaded_image" alt="uploaded-image" title="Uploaded image"/>
         </div>
       </div>
