@@ -18,6 +18,8 @@ import { ShareYourGardenComponent } from './components/share-your-garden/share-y
 import { AdDetailComponent } from './components/ads/ad-detail/ad-detail.component';
 import { GardenAdsComponent } from './components/share-your-garden/garden-ads/garden-ads.component';
 import { UnauthorizedComponent } from './components/unauthorized/unauthorized.component';
+import { RegistrationComponent } from './components/registration/registration.component';
+import { ForgottenPwdComponent } from './components/forgotten-pwd/forgotten-pwd.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { UnauthorizedComponent } from './components/unauthorized/unauthorized.co
     ShareYourGardenComponent,
     AdDetailComponent,
     GardenAdsComponent,
-    UnauthorizedComponent
+    UnauthorizedComponent,
+    RegistrationComponent,
+    ForgottenPwdComponent
   ],
 
   imports: [

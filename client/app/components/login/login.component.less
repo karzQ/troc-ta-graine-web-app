@@ -1,0 +1,124 @@
+.login{
+    width: 100%;
+    height: 100%;
+
+    background-color: aqua;
+
+    overflow: hidden;
+
+    .formular{
+        position: absolute;
+        top: calc(~'50% - 205px');
+        left: calc(~'50% - 165px');
+
+        width: 330px;
+        height: 500px;
+
+        text-align: center;
+
+        padding: 50px 35px 0 35px;
+        background-color: rgba(15, 105, 37, 0.692);
+
+        .title{
+            text-align: left;
+            margin-bottom: 3.5rem;
+        }
+
+        .inputs{
+            text-align: center;
+
+            label{
+                float: left;
+                font-weight: bold;
+                font-size: 0.8em;
+            }
+
+            input {
+                padding-left: 10px;
+                border: 0;
+                border-bottom: 2px solid white;
+                background: transparent;
+                width: 100%;
+            }
+
+            ::-webkit-input-placeholder{
+                color: rgb(221, 221, 221);
+            }
+
+            .email, .pwd{
+                width: 100%;
+            }
+
+            .email{
+                margin-bottom: 40px;
+            }
+
+            .pwd{
+                margin-bottom: 15px;
+            }
+        }
+
+        a.txt-color, .txt-color{
+            color: white;
+            text-decoration: none;
+        }
+
+        .forgotten-pwd{
+            float: right;
+            font-size: 0.7em;
+
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .registration {
+            position: absolute;
+
+            width: 150px;
+            
+            left: calc(~'50% - 75px');
+            bottom: 80px;
+
+            a{
+                color: #70c651;
+                text-decoration: underline;
+
+                font-size: 1.4em;
+            }
+        }
+
+        .charte{
+            position: absolute;
+            bottom: -40px;
+            left: calc(~'50% - 70px');
+
+            width: 140px;
+
+            text-align: center;
+
+            a{
+                color: black;
+                text-decoration: underline;
+            }
+        }
+
+        .btn-submit{
+            position: absolute;
+
+            font-size: 1.7em;
+
+            bottom: 0;
+            left: 0;
+
+            height: 60px;
+            width: 100%;
+
+            border: 0;
+
+            color: white;
+
+            background-color: #70c651;
+        }
+
+    }
+}
