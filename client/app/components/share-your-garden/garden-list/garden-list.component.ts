@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Garden } from '../../../models/class/garden';
+import { gardens } from '../../../models/mocks/garden-mock';
 
 @Component({
   selector: 'app-garden-list',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GardenListComponent implements OnInit {
 
+  gardens: Garden[] = [];
+
   constructor() { }
 
   ngOnInit() {
+    this.gardens = gardens;
   }
 
 }

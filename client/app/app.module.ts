@@ -1,9 +1,12 @@
+// Structural Modules
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-import { AppRoutingModule } from './/app-routing.module';
+// Added Modules
+import { AppRoutingModule } from './app-routing.module';
 
+// Components
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { AccountComponent } from './components/account/account.component';
@@ -17,12 +20,19 @@ import { NotificationComponent } from './components/notification/notification.co
 import { ShareYourGardenComponent } from './components/share-your-garden/share-your-garden.component';
 import { AdDetailComponent } from './components/ads/ad-detail/ad-detail.component';
 import { UnauthorizedComponent } from './components/unauthorized/unauthorized.component';
-import { RegistrationComponent } from './components/registration/registration.component';
-import { ForgottenPwdComponent } from './components/forgotten-pwd/forgotten-pwd.component';
+import { RegistrationComponent } from './components/login/registration/registration.component';
+import { ForgottenPwdComponent } from './components/login/forgotten-pwd/forgotten-pwd.component';
 import { GardenListComponent } from './components/share-your-garden/garden-list/garden-list.component';
 import { GardenDetailComponent } from './components/share-your-garden/garden-detail/garden-detail.component';
 import { GardenFormularComponent } from './components/share-your-garden/garden-formular/garden-formular.component';
 import { GardenComponent } from './components/share-your-garden/garden/garden.component';
+import { AdsListComponent } from './components/ads/ads-list/ads-list.component';
+import { AdsFormularComponent } from './components/ads/ads-formular/ads-formular.component';
+import { AuthenticationComponent } from './components/login/authentication/authentication.component';
+
+// Services
+import { AuthenticationService } from './services/auth/authentication.service';
+import { CallbackComponent } from './components/callback/callback.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +55,10 @@ import { GardenComponent } from './components/share-your-garden/garden/garden.co
     GardenDetailComponent,
     GardenFormularComponent,
     GardenComponent,
+    AdsListComponent,
+    AdsFormularComponent,
+    AuthenticationComponent,
+    CallbackComponent,
   ],
 
   imports: [
@@ -54,7 +68,7 @@ import { GardenComponent } from './components/share-your-garden/garden/garden.co
   ],
 
   providers: [
-    
+    AuthenticationService
   ],
 
   bootstrap: [AppComponent]

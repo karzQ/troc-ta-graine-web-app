@@ -1,0 +1,53 @@
+.garden-list {
+
+    .header{
+
+        .btn-new{
+            a {
+                button{
+                    color: white;
+                    background-color: #70C651;
+                    border: none;
+                }
+            }
+
+        }
+
+        .settings{
+
+            .btn-settings{
+                position: relative;
+                height: 35px;
+                width: 35px;
+                border: 2px solid gray;
+                border-radius: 50%; 
+
+                background-color: #1A4D12;
+
+                cursor: pointer;
+
+                .settings-img{
+                    position: absolute;
+
+                    color: white;
+
+                    top: 6px;
+                    left: 6px;
+                    width: 20px;
+                }
+            }
+        }
+    }
+    
+    .content{
+        margin-top: 30px;
+
+        .list{
+            display: grid;
+            grid-gap: 10px;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: 180px 180px 100px;
+            grid-auto-flow: column;
+        }
+    }
+}

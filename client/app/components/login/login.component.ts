@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/class/user';
 import { users } from '../../models/mocks/users-mock';
+import { AuthenticationService } from '../../services/auth/authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -23,17 +24,17 @@ export class LoginComponent implements OnInit {
   checkValues(login: string, password: string): boolean {
     console.log(`login : ${login} (${typeof(login)}), mdp : ${password} (${typeof(password)})`);
 
-    for (let user of users) {
+    for (const user of users) {
       if (user.email === this.login || user.username === this.login) {
         console.log('Login ok');
         if (user.password === this.password) {
           console.log('Password ok');
           return true;
         } else {
-          console.log("Wrong password");
+          console.log('Wrong password');
         }
       } else {
-        console.log("Wrong login");
+        console.log('Wrong login');
       }
     }
   }

@@ -1,0 +1,26 @@
+<div class="registration">
+  <div class="credentials" *ngIf="step === 0">
+    <label>Adresse mail</label>
+    <input type="email" placeholder="example@xyz.com" name='email'>
+    <label>Mot de passe</label>
+    <input type="password" placeholder="Password" name='password'>
+  </div>
+
+  <div class="identity" *ngIf="step === 1">
+    <label>Prénom</label>
+    <input type="text" placeholder="Ex: Jean" name='name'>
+    <label>Nom</label>
+    <input type="text" placeholder="Ex: Dupont" name='lastName'>
+    <label>Date de naissance</label>
+    <input type="date" placeholder="01/01/1970" name='birthDate'>
+  </div>
+
+  <div class="adress" *ngIf="step === 2">
+    <label>Adresse</label>
+    <input type="text" placeholder="Ex: 01 rue de Paris" name='adress'>
+    <label>Ville</label>
+    <input type="text" placeholder="Ex: Paris" name='city'>
+    <label>Code Postal</label>
+    <input type="text" placeholder="Ex: 75005" name='zipCode'>
+  </div>
+</div>

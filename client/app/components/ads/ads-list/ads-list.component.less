@@ -1,0 +1,51 @@
+.list{
+    display: flex;
+    justify-content: center;
+
+    .nav-button {
+        width: 20px;
+        opacity: 0.5;
+
+        transition: all 0.3s ease-in-out;
+
+        &.left {
+            transform: rotate(180deg);
+
+            &:hover{
+                transform: scale(1.5) perspective(1px) rotate(180deg);
+            }
+        }
+
+        &:hover{
+            transform: scale(1.5) perspective(1px);
+            opacity: 1;
+        }
+    }
+
+    .card{
+        transition: all 0.3s ease-in-out;
+        margin: 10px 0 10px 0;
+        
+        &.primary {
+            opacity: 1;
+            
+            &:hover{
+                transform: scale(1.1) perspective(1px);
+            }
+        }
+
+        &.secondary {
+            transform: scale(0.75);
+            opacity: 0.2;
+
+            &:hover{
+                transform: scale(0.9) perspective(1px);
+                opacity: 0.5;
+            }
+        }
+
+        &.back-slide{
+            display: none;
+        }
+    }
+}
