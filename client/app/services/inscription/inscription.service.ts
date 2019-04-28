@@ -10,9 +10,11 @@ export class InscriptionService {
 
   private settedCredentials: boolean;
   private settedPersonal: boolean;
+  step: number;
 
   constructor() {
      this.newUser = new User(0, '', '', new Date(), new Date(), '', '', '', '');
+     this.step = 0 ;
   }
 
   setUserCredentials(data): void {

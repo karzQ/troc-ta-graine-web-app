@@ -1,6 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
 
+@font-face {
+    src: url('./assets/fonts/Nexa_Bold.otf');
+    font-family: 'Nexa_Bold';
+}
+
+@font-face {
+    src: url('./assets/fonts/Nexa_Light.otf');
+    font-family: 'Nexa_Light';
+}
+
 /* Test du responsive
 
 // Très large écran
@@ -49,6 +59,10 @@
 @media all and (max-width: 320px){
 }
 
+*{
+    font-family: 'Nexa_Bold'
+}
+
 body{
     font-size:8pt;
     overflow-x: hidden;
@@ -57,7 +71,6 @@ body{
         border-radius: 50%;
         border: 2px solid white;
         color: white;
-        font-weight: bold;
         background-color: rgba(30, 100, 21, 0.7);
         text-decoration: none;
         cursor: pointer;

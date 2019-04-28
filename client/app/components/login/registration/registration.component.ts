@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { InscriptionService } from '../../../services/inscription/inscription.service';
 
 @Component({
   selector: 'app-registration',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistrationComponent implements OnInit {
 
-  constructor() { }
+  constructor(public registration: InscriptionService) { }
 
   ngOnInit() {
   }

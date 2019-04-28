@@ -9,6 +9,10 @@ import { AuthenticationService } from '../../../services/auth/authentication.ser
 })
 export class AuthenticationComponent implements OnInit {
 
+  // ngModel
+  login: string;
+  password: string;
+
   constructor(public authService: AuthenticationService) {
   // constructor(public auth: AuthenticationService) {
     // auth.handleAuthentication();
