@@ -9,7 +9,7 @@ import { AuthenticationService } from '../../../services/auth/authentication.ser
 })
 export class AuthenticationComponent implements OnInit {
 
-  constructor() {
+  constructor(public authService: AuthenticationService) {
   // constructor(public auth: AuthenticationService) {
     // auth.handleAuthentication();
   }
@@ -21,5 +21,4 @@ export class AuthenticationComponent implements OnInit {
     }
     */
   }
-
 }

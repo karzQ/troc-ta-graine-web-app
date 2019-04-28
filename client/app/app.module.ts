@@ -2,6 +2,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 
 // Added Modules
 import { AppRoutingModule } from './app-routing.module';
@@ -64,7 +65,8 @@ import { CallbackComponent } from './components/callback/callback.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ScrollToModule.forRoot(),
   ],
 
   providers: [

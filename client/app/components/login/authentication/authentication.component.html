@@ -1,48 +1,58 @@
-<div class="login">
-    <div class="formular" style="text-align: center;">
+<div class="login container">
 
-      <h4 class="title txt-color">Déjà inscrit ?</h4>
+  <div class="header">
+    <div class="brand">
+      <img src="#" alt="troc_ta_graine" title="Troc ta Graine">
+    </div>
 
-      <div class="inputs">
+    <div class="menu">
+      <img class="img-menu" src="#">
+    </div>
+  </div>
 
-        <div class="email">
+  <div class="formular" style="text-align: center;">
 
-          <label class="txt-color" for="email">Login</label>
-          <br/>
-          <input type="email" [(ngModel)]="login" placeholder="Adresse mail">
-        </div>
+    <h4 class="title txt-color">Déjà inscrit ?</h4>
 
-        <div class="pwd">
-          <label class="txt-color" for='pwd'>Mot de passe</label>
-          <br/>
-          <input type="password" [(ngModel)]="password" placeholder="Mot de passe">
-        </div>
+    <div class="inputs">
+
+      <div class="email">
+
+        <label class="txt-color" for="email">Ton email</label>
+        <br/>
+        <input type="email" [(ngModel)]="login" placeholder="Adresse mail">
       </div>
-    
-      <div class="forgotten-pwd">
-        <a class="txt-color" routerLink='forgotten-password'>Mot de passe oublié ?</a>
-      </div>
 
-
-      <div class="registration">
-        <span>
-          <img src="#">
-          <a routerLink="register">S'inscrire</a>
-          <img src="#">
-        </span>
-      </div>
-    
-      <button class="btn-submit" (click)="checkValues(login, password)">
-        <span>Se connecter
-          <img src="#">
-        </span>
-      </button>
-
-      <div class="charte">
-        <a class="txt-color" routerLink='charte'>Charte d'utilisation</a>
+      <div class="pwd">
+        <label class="txt-color" for='pwd'>Ton mot de passe</label>
+        <br/>
+        <input type="password" [(ngModel)]="password" placeholder="Mot de passe">
       </div>
     </div>
-      
+  
+    <div class="forgotten-pwd">
+      <a class="txt-color" routerLink='forgotten-password'>Mot de passe oublié ?</a>
+    </div>
+
+
+    <div class="registration">
+      <span>
+        <img src="#">
+        <a routerLink="/login/register">S'inscrire</a>
+        <img src="#">
+      </span>
+    </div>
+  
+    <button class="btn-submit" (click)="authService.login(login, password)">
+      <span>Se Connecter
+        <img src="#">
+      </span>
+    </button>
+  </div>
+
+  <div class="charte">
+      <a class="txt-color" routerLink='charte'>Charte d'utilisation | Mentions légales</a>
+  </div>
 </div>
 
 <!--

@@ -1,57 +1,61 @@
-<!-- ABOUT -->
-<div class="aboutTTG">
-  <div class="row">
-      <div class="col-6 blocTransition">
-          <h1 class="titreSection float-left">Échange de semences</h1>
-          <p class="float-left colorTexte">Notre objectif est de proposer à nos utilisateurs un outil digital sous forme de marketplace qui apportera des solutions
-          pour un mode de vie durable, auto-suffisant et alternatif. Pour cela, nous allons créer une plateforme performante de mise en relation permettant aux particuliers d’entrer en contact pour qu’ils s’échangent tout types de graines</p>
-          
-          <p class="float-left colorTexte">Aussi bien adapté pour les passionnés que pour les amateurs de botanique, des citadins de grandes villes ou des provinciaux, <i>Troc ta Graine</i> modernise le domaine en corrélant les différents moyens de communication d'aujourd'hui (réseaux sociaux, appli mobile, web...) pour mettre en relation des gens de tout âge, milieu ou domaine pour <strong>échanger</strong> ensemble et librement des graines de qualité, des conseils et astuces d’entretien pour des plantations respectant la nature et plus saines pour notre corps.</p>
-      </div>
+<div class="home">
+    <div class="first-view">
+        <div class="actu">
+            <p>Actualités</p>
+            <img class="img" src="#">
+        </div>
 
-      <div class="col-6 blocTransition">
-          <h1 class="titreSection float-right">Permaculture</h1>
-          <p class="float-left colorTexte">Notre outil servira également de guide qui accompagnera l’utilisateur dans sa démarche écoresponsable relative à la <strong>permaculture</strong>.</p> 
-          
-          <p class="float-left colorTexte">Nous mettrons à sa disposition une documentation interactive reprenant les bases de la permaculture et comprenant des conseils relatifs à l’entretien des plantes et des graines, ainsi que des informations sur les méthodes de design et d’interrelations des plantes.</p>
-      </div>
-  </div>
-</div>
+        <div [ngx-scroll-to]="'#login'" class="btn arrow-down ttg-button">
+            >
+            <!--<img src="#" alt="arrow-down">-->
+        </div>
+    </div>
 
-<!-- ÉQUIPE + DISCORD -->
-<div class="divEquipe">
-  <div class="row">
-      <div class="col-12">
-          <h1 class="titreSection">L'équipe</h1>
-          <div class="row">
-              <div class="col nomTrombinoscope">
-                  <img class="img-fluid rounded-circle trombinoscope" src="../../../assets/img/karima.jpg">
-                  <br /> Karima
-              </div>
-              <div class="col nomTrombinoscope">
-                  <img class="img-fluid rounded-circle trombinoscope" src="../../../assets/img/julien.jpg">
-                  <br /> Julien
-              </div>
-              <div class="col nomTrombinoscope">
-                  <img class="img-fluid rounded-circle trombinoscope" src="../../../assets/img/eugenie.jpg">
-                  <br /> Eugénie
-              </div>
-          </div>
-          
-          <div class="row">
-              <div class="col nomTrombinoscope">
-                  <img class="img-fluid rounded-circle trombinoscope" src="../../../assets/img/quentin.jpg">
-                  <br /> Quentin
-              </div>
-              <div class="col nomTrombinoscope">
-                  <img class="img-fluid rounded-circle trombinoscope" src="../../../assets/img/vincent.jpg">
-                  <br /> Vincent
-              </div>
-              <div class="col nomTrombinoscope">
-                  <img class="img-fluid rounded-circle trombinoscope" src="../../../assets/img/raphael.jpg">
-                  <br /> Raphaël
-              </div>
-          </div>
-      </div>
-  </div>
+    <div class="menu">
+        <div id="login" class="nav-button" routerLink='/login'>
+            Se Connecter
+        </div>
+
+        <div id="ads" class="nav-button" routerLink='/ads'>
+            <div class="help">?</div>
+            Annonces
+        </div>
+
+        <div id="garden" class="nav-button" routerLink='/garden'>
+            <div class="help">?</div>
+            Partage ton Jardin
+        </div>
+
+        <div id="perma" class="nav-button">
+            <div class="help">?</div>
+            La Permaculture
+        </div>
+
+        <div id="forum" class="nav-button" routerLink=''>
+            <div class="help">?</div>
+            Forum
+        </div>
+
+        <div id="doc" class="nav-button" routerLink='/documentation'>
+            <div class="help">?</div>
+            Documentation
+        </div>
+
+        <div id="kesako" class="nav-button" routerLink='/kesako'>
+            <div class="help">?</div>
+            Kesako
+        </div>
+
+    </div>
+
+    <div class="social-medias">
+        <div class="list">
+            <img class='img-rs' src='../../../assets/img/facebook.svg' alt="facebook">
+            <img class='img-rs' src="../../../assets/img/instagram.svg" alt="instagram">
+            <img class='img-rs' src="../../../assets/img/youtube.svg" alt="youtTube">
+            <img class='img-rs' src="../../../assets/img/twitter.svg" alt="twitter">
+        </div>
+
+        <div class="chart">Charte d'utilisation</div>
+    </div>
 </div>

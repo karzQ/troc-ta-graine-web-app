@@ -12,7 +12,7 @@ export class InscriptionService {
   private settedPersonal: boolean;
 
   constructor() {
-     this.newUser = new User(0, '', '', '', '', '', '', '', '');
+     this.newUser = new User(0, '', '', new Date(), new Date(), '', '', '', '');
   }
 
   setUserCredentials(data): void {

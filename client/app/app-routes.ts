@@ -23,7 +23,7 @@ export const routes: Routes = [
         { path: 'login', component: LoginComponent, children: [
             { path: '', redirectTo: 'auth', pathMatch: 'full'},
             { path: 'auth', component: AuthenticationComponent },
-            { path: 'inscription', component: RegistrationComponent},
+            { path: 'register', component: RegistrationComponent},
         ]},
         { path: 'documentation', component: DocumentationComponent },
         { path: 'ads', component: AdsComponent, children: [

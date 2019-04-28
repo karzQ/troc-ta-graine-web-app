@@ -2,8 +2,8 @@ export class User {
     id?: number;
     lastName?: string;
     firstName?: string;
-    accountCreationDate?: string; // à transformer en date
-    birthDate?: string; // idem
+    accountCreationDate?: Date; // à transformer en date
+    birthDate?: Date; // idem
 
     email?: string;
     username?: string;
@@ -11,7 +11,7 @@ export class User {
 
     token?: string;
 
-    constructor(id?: number, lastName?: string, firstName?: string, accountCreationDate?: string, birthDate?: string,
+    constructor(id?: number, lastName?: string, firstName?: string, accountCreationDate?: Date, birthDate?: Date,
         email?: string, username?: string, password?: string, token?: string) {
 
         this.id = id;
