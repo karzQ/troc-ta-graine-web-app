@@ -3,12 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
-import { NgbModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
-import { DeviceDetectorModule } from 'ngx-device-detector';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 // Added Modules
 import { AppRoutingModule } from './app-routing.module';
+import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
+import { NgbModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
+import { DeviceDetectorModule } from 'ngx-device-detector';
 
 // Components
 import { AppComponent } from './app.component';
@@ -33,10 +34,16 @@ import { GardenComponent } from './components/share-your-garden/garden/garden.co
 import { AdsListComponent } from './components/ads/ads-list/ads-list.component';
 import { AdsFormularComponent } from './components/ads/ads-formular/ads-formular.component';
 import { AuthenticationComponent } from './components/login/authentication/authentication.component';
+import { CallbackComponent } from './components/callback/callback.component';
 
 // Services
 import { AuthenticationService } from './services/auth/authentication.service';
-import { CallbackComponent } from './components/callback/callback.component';
+import { AuthGuard } from './guards/auth.guard';
+import { UserService } from './services/data/user/user.service';
+import { DataService } from './services/data/data.service';
+import { JwtInterceptor } from './helpers/jwt.interceptor';
+import { fakeBackendProvider } from './helpers/fake-back';
+import { SearchPipe } from './services/pipes/search.pipe';
 
 @NgModule({
   declarations: [
@@ -63,6 +70,7 @@ import { CallbackComponent } from './components/callback/callback.component';
     AdsFormularComponent,
     AuthenticationComponent,
     CallbackComponent,
+    SearchPipe,
   ],
 
   imports: [
@@ -70,14 +78,27 @@ import { CallbackComponent } from './components/callback/callback.component';
     BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
     DeviceDetectorModule.forRoot(),
     NgbTooltipModule,
     NgbModule.forRoot(),
     ScrollToModule.forRoot(),
   ],
 
+  exports: [
+    SearchPipe,
+  ],
+
   providers: [
-    AuthenticationService
+    AuthGuard,
+    AuthenticationService,
+    UserService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
+      multi: true
+    },
+    fakeBackendProvider
   ],
 
   bootstrap: [AppComponent]

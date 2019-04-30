@@ -1,35 +1,104 @@
 <div class="login container" [@fadeInOut]>
-  <ngb-alert [@displayLogMessage] *ngIf="testMessage" type="success" (close)="testMessage = null">
-    {{ testMessage }} - {{ timer }}
-  </ngb-alert>
+  <div class="alert" [@displayLogMessage] *ngIf="testMessage">
+    <ngb-alert [dismissible]="false" [type]="alertType" (close)="testMessage = null">
+      {{ testMessage }}
+    </ngb-alert>
+  </div>
 
-  <div class="header">
-    <div class="brand">
-      <img src="#" alt="troc_ta_graine" title="Troc ta Graine">
-    </div>
+  <!-- <div class="alert" [@displayLogMessage]>
+    <ngb-alert type="warning">
+      <ul>
+        <li *ngFor="let user of users">{{user.firstName}} {{user.lastName}}</li>
+    </ul>
+    </ngb-alert>
+  </div> -->
 
-    <div class="menu">
-      <img class="img-menu" src="#">
+  <div class="bg-cover" *ngIf="menuIsHidden === false"></div>
+
+  <div class="navigation" *ngIf="menuIsHidden === false" [@fadeInOut]>
+
+    <div class="menu" [@fadeInOut]>
+        <div class="cancel-arrow" (click)='menuIsHidden = !menuIsHidden'>
+            <img src="../../../assets/img/flecheDblanche.png" alt="back" title="Retour">
+        </div>
+
+        <div class="header">
+
+            <div id="home" class="nav-button" routerLink='/'>
+                Accueil
+            </div>
+
+            <div id="ads" class="nav-button" routerLink='/ads'>
+                Annonces
+            </div>
+    
+            <div id="garden" class="nav-button">
+                Partage ton Jardin
+            </div>
+    
+            <div id="perma" class="nav-button">
+                La Permaculture
+            </div>
+    
+            <div id="forum" class="nav-button" routerLink=''>
+                Forum
+            </div>
+    
+            <div id="doc" class="nav-button" routerLink='/documentation'>
+                Documentation
+            </div>
+    
+            <div id="kesako" class="nav-button" routerLink='/kesako'>
+                Kesako
+            </div> 
+        </div>
+
+        <div class="footer">
+            <div id="login" class="nav-button" routerLink='/login'>
+                Se Connecter
+            </div>
+        </div>
     </div>
   </div>
 
-  <div class="formular" style="text-align: center;">
+  <div class="header">
+    <div class="row">
 
-    <h4 class="title txt-color">Déjà inscrit ?</h4>
+      <div class="col">
+        <div class="brand">
+          <img src="../../../../assets/img/Logo Seul Blanc.png" alt="logo_blanc" title="Logo">
+        </div>
+
+        <div class="btn-menu" *ngIf="menuIsHidden === true" (click)='menuIsHidden = !menuIsHidden' [@fadeInOut]>
+          <img src="../../.././assets/img/LEAF_MENU.png" title="leaf menu" alt="LEAF_MENU">
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <form class="formular" style="text-align: center;"  (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+
+    <div class="seedy">
+      <img src="../../../../assets/img/Heureux.png" alt="image_seedy" title="Seedy est tout gentil !">
+    </div>
+
+    <p class="title txt-color">Déjà inscrit ?</p>
 
     <div class="inputs">
 
       <div class="email">
 
-        <label class="txt-color" for="email">Ton email</label>
+        <label class="txt-color" for="username">Ton email</label>
         <br/>
-        <input type="email" [(ngModel)]="login" placeholder="Adresse mail">
+        <input type="text" name="username" [(ngModel)]="model.username" placeholder="Pseudo" #username="ngModel" required>
+        <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div>
       </div>
 
       <div class="pwd">
         <label class="txt-color" for='pwd'>Ton mot de passe</label>
         <br/>
-        <input type="password" [(ngModel)]="password" placeholder="Mot de passe">
+        <input type="password" [(ngModel)]="model.password" placeholder="Mot de passe" name="password" #password="ngModel" required>
       </div>
     </div>
   
@@ -40,21 +109,25 @@
 
     <div class="registration">
       <span>
-        <img src="#">
+        <img src="../../../../assets/img/petitecroix.png">
         <a routerLink="/login/register">S'inscrire</a>
-        <img src="#">
+        <img src="../../../../assets/img/petitecroix.png">
       </span>
     </div>
   
-    <button class="btn-submit" (click)="authService.login(login, password); displayAlertMessage()">
+    <button [disabled]='loading' class="btn-submit">
       <span>Se Connecter
         <img src="#">
       </span>
     </button>
-  </div>
+
+    <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+  </form>
 
   <div class="charte">
-      <a class="txt-color" routerLink='charte'>Charte d'utilisation | Mentions légales</a>
+      <span>
+        <b class="underlined">Charte d'utilisation</b> | <b class="underlined">Mentions légales</b>
+      </span>
   </div>
 </div>
 

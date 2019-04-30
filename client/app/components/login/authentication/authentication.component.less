@@ -1,152 +1,690 @@
-.login{
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    background-color: aqua;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    overflow: hidden;
+@media all {
+    @media (min-width: 426px) {
+        .login{
+            width: 100%;
+            height: 100vh;
+            text-align: center;
+            background-color: aqua;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
 
-    .header{
-        width: 100%;
-        height: 35%;
+            background: no-repeat url('../../../../assets/img/FOND_LOGIN_MOBIL.png');
+            background-position: center;
+            background-size: cover;
 
-        .brand {
-            margin-top: 75px;
-        }
+            .bg-cover {
+                position: fixed;
+                top: 0;
+                left: 0;
 
-        .menu {
-            position: absolute;
-            top: 5%;
-            right: 10%;
+                height: 100%;
+                width: 100%;
 
+                z-index: 9;
+                background-color: rgba(10, 10, 10, 0.7);
+            }
 
-            .img-menu {
-                width: 40px;
-                height: 40px;
+            .navigation {
+                position: fixed;
+                top: 0;
+                right: 0;
+                width: 300px;
+                height: 100vh;
+                background-color: aliceblue;
+                text-align: center;
+
+                z-index: 10;
+
+                background: linear-gradient(to right, rgba(10,10,10,0) 0%, rgba(30,30,30,0.3) 25%, rgba(70,70,70,0.7) 50%, rgba(100,100,100,1) 100%);
+            
+                .menu {
+                    position: relative;
+                    height: 100%;
+                    width: 100%;
+
+                    padding-top: 20%;
+
+                    .cancel-arrow {
+                        position: absolute;
+                        top: 25px;
+                        right: 20px;
+
+                        img {
+                            width: 30px;
+                            height: 30px;
+                        }
+
+                        transition: all 0.3s ease-in-out;
+
+                        &:hover {
+                            cursor: pointer;
+                            transform: scale(1.2) perspective(1px);
+                        }
+                    }
+
+                    .header {
+                        height: 70%;
+                        justify-content: space-between;
+
+                        .nav-button{
+                            height: calc(~'80%/6');
+                        }
+                    }
+
+                    .footer{
+                        height: 30%;
+                        justify-content: flex-end;
+
+                        .nav-button {
+                            height: 30%;
+
+                            color: #9BED65;
+                            text-decoration: underline;
+                        }
+                    }
+
+                    .footer, .header{                        
+                        padding: 10% 0;
+                        display: flex;
+                        flex-direction: column;
+                        font-size: 1.5em;
+                    }
+
+                    .nav-button {
+                        width: 100%;
+
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+
+                        cursor: pointer;
+                        color: white;
+
+                        transition: all 0.3s ease-in-out;
+
+                        &:hover {
+                            transform: scale(1.1) perspective(1px);
+                        }
+                    }
+
+                    #home {
+                        background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.5) 25%, rgba(255,255,255,0.7) 50%, rgba(255,255,255,1) 100%);
+                        // background-color: #70C651;
+                    }
+                                
+                    #ads {
+                        background: linear-gradient(to right, rgba(112,198,81,0) 0%, rgba(112,198,81,0.5) 25%, rgba(112,198,81,0.7) 50%, rgba(112,198,81,1) 100%);
+                        // background-color: #70C651;
+                    }
+            
+                    #garden {
+                        background: linear-gradient(to right, rgba(69, 158, 60,0) 0%, rgba(69, 158, 60,0.5) 25%, rgba(69, 158, 60,0.7) 50%, rgba(69, 158, 60,1) 100%);
+                        // background-color: rgb(69, 158, 60);
+                    }
+            
+                    #perma {
+                        background: linear-gradient(to right, rgba(35, 128, 43,0) 0%, rgba(35, 128, 43,0.5) 25%, rgba(35, 128, 43,0.7) 50%, rgba(35, 128, 43,1) 100%);
+                        // background-color: rgb(35, 128, 43);
+                    }
+            
+                    #forum {
+                        background: linear-gradient(to right, rgba(8, 103, 31,0) 0%, rgba(8, 103, 31,0.5) 25%, rgba(8, 103, 31,0.7) 50%, rgba(8, 103, 31,1) 100%);
+                        // background-color: rgb(8, 103, 31);
+                    }
+            
+                    #doc {
+                        background: linear-gradient(to right, rgba(0, 85, 24,0) 0%, rgba(0, 85, 24,0.5) 25%, rgba(0, 85, 24,0.7) 50%, rgba(0, 85, 24,1) 100%);
+                        // background-color: rgb(0, 85, 24);
+                    }
+            
+                    #kesako {
+                        background: linear-gradient(to right, rgba(0, 72, 10,0) 0%, rgba(0, 72, 10, 0.5) 25%, rgba(0, 72, 10,0.7) 50%, rgba(0, 72, 10,1) 100%);
+                        // background-color: rgb(0, 72, 10);
+                    }
+                }
+            }
+
+            .header {
+                text-align: center;
+
+                .brand {
+                    margin-top: 60px;
+                    img {
+                        width: 180px;
+                        height: 115px;
+                    }
+                }
+
+                .btn-menu {
+                    position: absolute;
+                    top: 25px;
+                    right: 20px;
+
+                    img {
+                        width: 45px;
+                        height: 45px;
+                    }
+                }
+            }
+
+            .alert{
+                position: absolute;
+                top: -1px;
+                left: calc(~'50% - 125px');
+                margin: 0;
+                padding: 0;
+                width: 250px;
+            }
+        
+
+            .formular{
+                position: relative;
+
+                width: 85%;
+                height: 55%;
+                margin: 20px auto 10px auto;
+
+                min-height: 360px;
+
+                text-align: center;
+
+                padding: 50px 35px 0 35px;
+                
+                background: -moz-linear-gradient(top, rgba(82,177,82,0.7) 0%, rgba(0,138,0,0.7) 50%, rgba(0,87,0,0.7) 99%, rgba(0,36,0,0.7) 100%); /* FF3.6-15 */
+                background: -webkit-linear-gradient(top, rgba(82,177,82,0.7) 0%,rgba(0,138,0,0.7) 50%,rgba(0,87,0,0.7) 99%,rgba(0,36,0,0.7) 100%); /* Chrome10-25,Safari5.1-6 */
+                background: linear-gradient(to bottom, rgba(82,177,82,0.7) 0%,rgba(0,138,0,0.7) 50%,rgba(0,87,0,0.7) 99%,rgba(0,36,0,0.7) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b352b152', endColorstr='#b3002400',GradientType=0 ); /* IE6-9 */
+
+                //background-color: rgba(15, 105, 37, 0.692);
+
+                .seedy {
+                    position: absolute;
+                    top: -65px;
+                    left: 0;
+
+                    img {
+                        width: 55px;
+                        height: 90px;
+                    }
+                }
+
+                .title{
+                    text-align: left;
+                    font-size: 2em;
+                    margin-bottom: 1em;
+                }
+
+                .inputs{
+                    text-align: center;
+
+                    label{
+                        float: left;
+                    }
+
+                    input {
+                        padding-left: 10px;
+                        border: 0;
+                        border-bottom: 2px solid white;
+                        background: transparent;
+                        width: 100%;
+                    }
+
+                    ::-webkit-input-placeholder{
+                        color: lightgray;
+                        font-size: 0.9em;
+                    }
+
+                    .email, .pwd{
+                        width: 100%;
+                    }
+
+                    .email{
+                        margin-bottom: 40px;
+                    }
+
+                    .pwd{
+                        margin-bottom: 15px;
+                    }
+                }
+
+                a.txt-color, .txt-color{
+                    color: white;
+                    text-decoration: none;
+                }
+
+                .forgotten-pwd{
+                    text-align: right;
+                    font-size: 0.7em;
+
+                    font-weight: bold;
+                    text-decoration: none;
+
+                    margin-bottom: 70px;
+                }
+
+                .registration {
+                    position: absolute;
+                    width: 150px;                     
+                    bottom: 65px;
+                    left: calc(~'50% - 75px');
+                    text-align: center;
+
+                    a{
+                        color: #70c651;
+                        text-decoration: underline;
+
+                        font-size: 1.4em;
+                    }
+
+                    img {
+                        width: 10px;
+                        height: 10px;
+
+                        margin: 0 5px 0 5px;
+                    }
+                }
+
+                .btn-submit{
+                    position: absolute;
+
+                    font-size: 1.7em;
+
+                    bottom: 0;
+                    left: 0;
+
+                    height: 60px;
+                    width: 100%;
+
+                    border: 0;
+
+                    color: white;
+
+                    background-color: #70c651;
+                }
+            }    
+
+            .charte{
+                position: relative;
+                margin: 5%;
+                color: white;
+
+                div {
+                    width: fit-content;
+                }
             }
         }
     }
-   
 
-    .formular{
-        position: relative;
-
-        width: 85%;
-        height: 65%;
-        margin: 18% auto auto auto;
-
-        text-align: center;
-
-        padding: 50px 35px 0 35px;
-        
-        background: -moz-linear-gradient(top, rgba(82,177,82,0.7) 0%, rgba(0,138,0,0.7) 50%, rgba(0,87,0,0.7) 99%, rgba(0,36,0,0.7) 100%); /* FF3.6-15 */
-        background: -webkit-linear-gradient(top, rgba(82,177,82,0.7) 0%,rgba(0,138,0,0.7) 50%,rgba(0,87,0,0.7) 99%,rgba(0,36,0,0.7) 100%); /* Chrome10-25,Safari5.1-6 */
-        background: linear-gradient(to bottom, rgba(82,177,82,0.7) 0%,rgba(0,138,0,0.7) 50%,rgba(0,87,0,0.7) 99%,rgba(0,36,0,0.7) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b352b152', endColorstr='#b3002400',GradientType=0 ); /* IE6-9 */
-
-        //background-color: rgba(15, 105, 37, 0.692);
-
-        .title{
-            text-align: left;
-            margin-bottom: 3.5rem;
-        }
-
-        .seed {
-            position: absolute;
-            top: 0;
-            left: 15px;
-        }
-
-        .inputs{
-            text-align: center;
-
-            label{
-                float: left;
-                font-weight: bold;
-                font-size: 0.8em;
-            }
-
-            input {
-                padding-left: 10px;
-                border: 0;
-                border-bottom: 2px solid white;
-                background: transparent;
-                width: 100%;
-            }
-
-            ::-webkit-input-placeholder{
-                color: rgb(221, 221, 221);
-            }
-
-            .email, .pwd{
-                width: 100%;
-            }
-
-            .email{
-                margin-bottom: 40px;
-            }
-
-            .pwd{
-                margin-bottom: 15px;
-            }
-        }
-
-        a.txt-color, .txt-color{
-            color: white;
-            text-decoration: none;
-        }
-
-        .forgotten-pwd{
-            float: right;
-            font-size: 0.7em;
-
-            font-weight: bold;
-            text-decoration: none;
-        }
-
-        .registration {
-            position: relative;
-
-            margin: 50px auto 70px auto;
-
-            a{
-                color: #70c651;
-                text-decoration: underline;
-
-                font-size: 1.4em;
-            }
-        }
-
-        .btn-submit{
-            position: absolute;
-
-            font-size: 1.7em;
-
-            bottom: 0;
-            left: 0;
-
-            height: 60px;
+    @media (min-width: 321px) and (max-width: 425px) {
+        .login{
             width: 100%;
+            height: 100vh;
+            text-align: center;
+            background-color: aqua;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
 
-            border: 0;
+            background: no-repeat url('../../../../assets/img/FOND_LOGIN_MOBIL.png');
+            background-position: center;
+            background-size: cover;
 
-            color: white;
+            .header {
+                text-align: center;
 
-            background-color: #70c651;
+                .brand {
+                    margin-top: 60px;
+                    img {
+                        width: 180px;
+                        height: 115px;
+                    }
+                }
+
+                .btn-menu {
+                    position: absolute;
+                    top: 25px;
+                    right: 20px;
+
+                    img {
+                        width: 45px;
+                        height: 45px;
+                    }
+                }
+            }
+
+            .alert{
+                position: absolute;
+                top: -1px;
+                left: calc(~'50% - 125px');
+                margin: 0;
+                padding: 0;
+                width: 250px;
+            }
+        
+
+            .formular{
+                position: relative;
+
+                width: 85%;
+                height: 55%;
+                margin: 20px auto 10px auto;
+
+                min-height: 360px;
+
+                text-align: center;
+
+                padding: 50px 35px 0 35px;
+                
+                background: -moz-linear-gradient(top, rgba(82,177,82,0.7) 0%, rgba(0,138,0,0.7) 50%, rgba(0,87,0,0.7) 99%, rgba(0,36,0,0.7) 100%); /* FF3.6-15 */
+                background: -webkit-linear-gradient(top, rgba(82,177,82,0.7) 0%,rgba(0,138,0,0.7) 50%,rgba(0,87,0,0.7) 99%,rgba(0,36,0,0.7) 100%); /* Chrome10-25,Safari5.1-6 */
+                background: linear-gradient(to bottom, rgba(82,177,82,0.7) 0%,rgba(0,138,0,0.7) 50%,rgba(0,87,0,0.7) 99%,rgba(0,36,0,0.7) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b352b152', endColorstr='#b3002400',GradientType=0 ); /* IE6-9 */
+
+                //background-color: rgba(15, 105, 37, 0.692);
+
+                .seedy {
+                    position: absolute;
+                    top: -65px;
+                    left: 0;
+
+                    img {
+                        width: 55px;
+                        height: 90px;
+                    }
+                }
+
+                .title{
+                    text-align: left;
+                    font-size: 2em;
+                    margin-bottom: 1em;
+                }
+
+                .inputs{
+                    text-align: center;
+
+                    label{
+                        float: left;
+                    }
+
+                    input {
+                        padding-left: 10px;
+                        border: 0;
+                        border-bottom: 2px solid white;
+                        background: transparent;
+                        width: 100%;
+                    }
+
+                    ::-webkit-input-placeholder{
+                        color: lightgray;
+                        font-size: 0.9em;
+                    }
+
+                    .email, .pwd{
+                        width: 100%;
+                    }
+
+                    .email{
+                        margin-bottom: 40px;
+                    }
+
+                    .pwd{
+                        margin-bottom: 15px;
+                    }
+                }
+
+                a.txt-color, .txt-color{
+                    color: white;
+                    text-decoration: none;
+                }
+
+                .forgotten-pwd{
+                    text-align: right;
+                    font-size: 0.7em;
+
+                    font-weight: bold;
+                    text-decoration: none;
+
+                    margin-bottom: 70px;
+                }
+
+                .registration {
+                    position: absolute;
+                    width: 150px;                     
+                    bottom: 65px;
+                    left: calc(~'50% - 75px');
+                    text-align: center;
+
+                    a{
+                        color: #70c651;
+                        text-decoration: underline;
+
+                        font-size: 1.4em;
+                    }
+
+                    img {
+                        width: 10px;
+                        height: 10px;
+
+                        margin: 0 5px 0 5px;
+                    }
+                }
+
+                .btn-submit{
+                    position: absolute;
+
+                    font-size: 1.7em;
+
+                    bottom: 0;
+                    left: 0;
+
+                    height: 60px;
+                    width: 100%;
+
+                    border: 0;
+
+                    color: white;
+
+                    background-color: #70c651;
+                }
+            }    
+
+            .charte{
+                position: relative;
+                margin: 5%;
+                color: white;
+
+                div {
+                    width: fit-content;
+                }
+            }
         }
-    }    
+    }
 
-    .charte{
-        position: relative;
+    @media (max-width: 320px) {
+        .login{
+            width: 100%;
+            height: 100vh;
+            text-align: center;
+            background-color: aqua;
+            overflow: hidden;
 
-        margin: 10% auto;
+            background: no-repeat url('../../../../assets/img/FOND_LOGIN_MOBIL.png');
+            background-position: center;
+            background-size: cover;
 
+            .header {
+                text-align: center;
 
-        a{
-            color: black;
-            text-decoration: underline;
+                .brand {
+                    margin-top: 50px;
+                    img {
+                        width: 160px;
+                        height: 100px;
+                    }
+                }
+
+                .btn-menu {
+                    position: absolute;
+                    top: 25px;
+                    right: 20px;
+
+                    img {
+                        width: 45px;
+                        height: 45px;
+                    }
+                }
+            }
+
+            .alert{
+                position: absolute;
+                top: -1px;
+                left: calc(~'50% - 125px');
+                margin: 0;
+                padding: 0;
+                width: 250px;
+            }
+        
+
+            .formular{
+                position: relative;
+
+                width: 85%;
+                height: 45%;
+                margin: 10px auto 10px auto;
+
+                min-height: 360px;
+
+                text-align: center;
+
+                padding: 50px 35px 0 35px;
+                
+                background: -moz-linear-gradient(top, rgba(82,177,82,0.7) 0%, rgba(0,138,0,0.7) 50%, rgba(0,87,0,0.7) 99%, rgba(0,36,0,0.7) 100%); /* FF3.6-15 */
+                background: -webkit-linear-gradient(top, rgba(82,177,82,0.7) 0%,rgba(0,138,0,0.7) 50%,rgba(0,87,0,0.7) 99%,rgba(0,36,0,0.7) 100%); /* Chrome10-25,Safari5.1-6 */
+                background: linear-gradient(to bottom, rgba(82,177,82,0.7) 0%,rgba(0,138,0,0.7) 50%,rgba(0,87,0,0.7) 99%,rgba(0,36,0,0.7) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b352b152', endColorstr='#b3002400',GradientType=0 ); /* IE6-9 */
+
+                //background-color: rgba(15, 105, 37, 0.692);
+
+                
+                .seedy {
+                    position: absolute;
+                    top: -65px;
+                    left: 0;
+
+                    img {
+                        width: 55px;
+                        height: 90px;
+                    }
+                }
+
+                .title{
+                    text-align: left;
+                    font-size: 2em;
+                    margin-bottom: 1em;
+                }
+
+                .inputs{
+                    text-align: center;
+
+                    label{
+                        float: left;
+                    }
+
+                    input {
+                        padding-left: 10px;
+                        border: 0;
+                        border-bottom: 2px solid white;
+                        background: transparent;
+                        width: 100%;
+
+                        color: white;
+                    }
+
+                    ::-webkit-input-placeholder{
+                        color: lightgray;
+                        font-size: 0.9em;
+                    }
+
+                    .email, .pwd{
+                        width: 100%;
+                    }
+
+                    .email{
+                        margin-bottom: 40px;
+                    }
+
+                    .pwd{
+                        margin-bottom: 15px;
+                    }
+                }
+
+                a.txt-color, .txt-color{
+                    color: white;
+                    text-decoration: none;
+                }
+
+                .forgotten-pwd{
+                    text-align: right;
+                    font-size: 0.7em;
+
+                    font-weight: bold;
+                    text-decoration: none;
+
+                    margin-bottom: 70px;
+                }
+
+                .registration {
+                    position: absolute;
+                    width: 150px;                     
+                    bottom: 65px;
+                    left: calc(~'50% - 75px');
+                    text-align: center;
+
+                    a{
+                        color: #70c651;
+                        text-decoration: underline;
+
+                        font-size: 1.4em;
+                    }
+
+                    img {
+                        width: 10px;
+                        height: 10px;
+
+                        margin: 0 5px 0 5px;
+                    }
+                }
+
+                .btn-submit{
+                    position: absolute;
+
+                    font-size: 1.7em;
+
+                    bottom: 0;
+                    left: 0;
+
+                    height: 60px;
+                    width: 100%;
+
+                    border: 0;
+
+                    color: white;
+
+                    background-color: #70c651;
+                }
+            }    
+
+            .charte{
+                position: relative;
+                margin: 5%;
+                color: white;
+
+                div {
+                    width: fit-content;
+                }
+            }
         }
+
     }
 }

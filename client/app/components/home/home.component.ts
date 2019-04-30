@@ -1,13 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { DeviceDetectorService } from 'ngx-device-detector';
-import { SeedysDiags } from '../../models/mocks/seedys-dialogs';
 import { transition, trigger, state, style, animate } from '@angular/animations';
+import { SeedyService } from '../../services/seedy/seedy.service';
+import { SearchPipe } from '../../services/pipes/search.pipe';
+import { Ad } from '../../models/class/ad';
+import { ads } from '../../models/mocks/ads-mock';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.less'],
+  providers: [SeedyService, SearchPipe],
   animations: [
     trigger('fadeInOut', [
       state('void', style({
@@ -23,45 +27,27 @@ import { transition, trigger, state, style, animate } from '@angular/animations'
 
 export class HomeComponent implements OnInit {
 
-  constructor(private modalService: NgbModal, public deviceService: DeviceDetectorService) { }
+  constructor(private modalService: NgbModal, public deviceService: DeviceDetectorService, public seedysInteraction: SeedyService) { }
 
   actualitiesList = [];
 
   seedyText: string;
+  seedyIsClicked = false;
 
   context: string;
   menuIsHidden: boolean;
-  seedyIsClicked = false;
-  seedysDiags = SeedysDiags;
-
   actualDevice: string;
+
+  adsList: Ad[] = [];
 
   ngOnInit() {
     console.log(`Est-ce un mobile ? '${this.deviceService.isMobile()}`);
     console.log(`Est-ce un pc ? '${this.deviceService.isDesktop()}`);
     console.log(`Est-ce une tablette ? '${this.deviceService.isTablet()}`);
     this.menuIsHidden = true;
-  }
+    this.seedyText = this.seedysInteraction.setSeedyText(this.seedyIsClicked);
 
-  changeSeedysText(): number {
-    const randomVal = Math.floor(Math.random() * (this.seedysDiags.length - 1)) + 1;
-    // console.log(randomVal);
-    return randomVal;
-  }
-
-  chooseSeedysText(): string {
-    return this.seedysDiags[this.changeSeedysText()];
-  }
-
-  setSeedyText(): void {
-    let text: string;
-    if (this.seedyIsClicked === true) {
-      text = 'Noooon pitié !!! Stooop !!!!';
-    } else {
-      text = this.chooseSeedysText();
-    }
-    // console.log(text);
-    this.seedyText = text;
+    this.adsList = ads;
   }
 
   showModal(template, context?: string) {

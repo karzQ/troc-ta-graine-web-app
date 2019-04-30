@@ -3,6 +3,10 @@ import { AuthenticationService } from '../../../services/auth/authentication.ser
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Subject } from 'rxjs/Subject';
 import { debounceTime } from 'rxjs/operators';
+import { Router, ActivatedRoute } from '@angular/router';
+import { User } from '../../../models/class/user';
+import { users } from '../../../models/mocks/users-mock';
+import 'rxjs/add/operator/first';
 
 @Component({
   selector: 'app-authentication',
@@ -47,13 +51,25 @@ export class AuthenticationComponent implements OnInit {
   private _log = new Subject<string>();
 
   // ngModel
-  login: string;
+  // login: string;
   password: string;
 
   testMessage: string;
-  timer: number;
+  alertType: string;
 
-  constructor(public authService: AuthenticationService) {
+  users: User[] = [];
+
+  model: any = {};
+  loading = false;
+  returnUrl: string;
+  error = '';
+
+  menuIsHidden: boolean;
+
+  constructor(public authService: AuthenticationService,
+    private activateRoute: ActivatedRoute,
+    private router: Router,
+    private authenticationService: AuthenticationService) {
   // constructor(public auth: AuthenticationService) {
     // auth.handleAuthentication();
   }
@@ -65,25 +81,49 @@ export class AuthenticationComponent implements OnInit {
     }
     */
 
+    this.menuIsHidden = true;
+
+    // reset login status
+    this.authenticationService.logout();
+
+    // get return url from route parameters or default to '/'
+    this.returnUrl = this.activateRoute.snapshot.queryParams['returnUrl'] || '/';
+
+    this.users = users;
+
     this._log.subscribe((message) => this.testMessage = message);
     this._log.pipe(
-      debounceTime(10000)).subscribe(() => this.testMessage = null);
+      debounceTime(5000)).subscribe(() => this.testMessage = null);
 
   }
 
- startCountdown(timer: number): void {
-  this.timer = timer;
-  const interval = setInterval(() => {
-    this.timer--;
+  displayAlertMessage(reason: string, type: string): void {
+    this.alertType = type;
+    this._log.next(reason);
+  }
 
-    if (this.timer < 0 ) {
-      clearInterval(interval);
+  /*
+  authentication(login: string, password: string): void {
+    if (this.authService.login(login, password) === true) {
+      this.router.navigate(['/home']);
+      this.displayAlertMessage('Vous êtes connecté.', 'success');
+    } else {
+      this.displayAlertMessage('Mauvais identifiants', 'danger');
     }
-    }, 1000);
-  }
+  } */
 
-  displayAlertMessage(): void {
-    this.startCountdown(10);
-    this._log.next('Mauvais identifiants.');
-  }
+
+  login() {
+    this.loading = true;
+    this.authenticationService.login(this.model.username, this.model.password)
+        .first()
+        .subscribe(
+            data => {
+                this.router.navigate([this.returnUrl]);
+            },
+            error => {
+                this.error = error;
+                this.loading = false;
+            });
+    }
 }

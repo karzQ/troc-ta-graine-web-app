@@ -4,7 +4,8 @@ import { InscriptionService } from '../../../services/inscription/inscription.se
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
-  styleUrls: ['./registration.component.less']
+  styleUrls: ['./registration.component.less'],
+  providers: [InscriptionService]
 })
 export class RegistrationComponent implements OnInit {
 
