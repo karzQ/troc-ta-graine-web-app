@@ -10,6 +10,9 @@ export class AuthenticationService {
   testUser: User;
   userList: User[] = [];
 
+  preventUser: boolean;
+  preventText: string;
+
   constructor(private route: Router) {
     this.testUser = new User(0, 'Karczinski', 'Quentin', new Date(), new Date(), 'test@gmail.com', 'test', 'test',
     'rt65h15erty4hn54e1rtyhn451e54trg1h56e1rt56h1e56rth456e4rt8h5e58');
@@ -39,10 +42,9 @@ export class AuthenticationService {
     && password === this.testUser.password) || this.checkUsersCredentials(login, password)) {
 
       this.isAuthenticated = true;
-      alert('Bons identifiants !');
       this.route.navigate(['/home']);
     } else {
-      alert('Mauvais identifiants.');
+
     }
   }
 }

@@ -1,5 +1,5 @@
-import { User } from "./user";
-import { Seed } from "./seed";
+import { User } from './user';
+import { Seed } from './seed';
 
 export class Garden {
     id: number;

@@ -1,4 +1,7 @@
-<div class="login container">
+<div class="login container" [@fadeInOut]>
+  <ngb-alert [@displayLogMessage] *ngIf="testMessage" type="success" (close)="testMessage = null">
+    {{ testMessage }} - {{ timer }}
+  </ngb-alert>
 
   <div class="header">
     <div class="brand">
@@ -43,7 +46,7 @@
       </span>
     </div>
   
-    <button class="btn-submit" (click)="authService.login(login, password)">
+    <button class="btn-submit" (click)="authService.login(login, password); displayAlertMessage()">
       <span>Se Connecter
         <img src="#">
       </span>

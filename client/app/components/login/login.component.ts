@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { User } from '../../models/class/user';
 import { users } from '../../models/mocks/users-mock';
-import { AuthenticationService } from '../../services/auth/authentication.service';
 
 @Component({
   selector: 'app-login',
