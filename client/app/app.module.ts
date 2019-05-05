@@ -38,12 +38,7 @@ import { CallbackComponent } from './components/callback/callback.component';
 
 // Services
 import { AuthenticationService } from './services/auth/authentication.service';
-import { AuthGuard } from './guards/auth.guard';
 import { UserService } from './services/data/user/user.service';
-import { DataService } from './services/data/data.service';
-import { JwtInterceptor } from './helpers/jwt.interceptor';
-import { fakeBackendProvider } from './helpers/fake-back';
-import { SearchPipe } from './services/pipes/search.pipe';
 
 @NgModule({
   declarations: [
@@ -70,7 +65,6 @@ import { SearchPipe } from './services/pipes/search.pipe';
     AdsFormularComponent,
     AuthenticationComponent,
     CallbackComponent,
-    SearchPipe,
   ],
 
   imports: [
@@ -86,19 +80,11 @@ import { SearchPipe } from './services/pipes/search.pipe';
   ],
 
   exports: [
-    SearchPipe,
   ],
 
   providers: [
-    AuthGuard,
     AuthenticationService,
     UserService,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: JwtInterceptor,
-      multi: true
-    },
-    fakeBackendProvider
   ],
 
   bootstrap: [AppComponent]

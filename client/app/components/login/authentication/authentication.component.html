@@ -77,7 +77,7 @@
     </div>
   </div>
 
-  <form class="formular" style="text-align: center;"  (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+  <form class="formular" style="text-align: center;"  (ngSubmit)="f.form.valid && authentication(model.username, model.password)" #f="ngForm" novalidate>
 
     <div class="seedy">
       <img src="../../../../assets/img/Heureux.png" alt="image_seedy" title="Seedy est tout gentil !">
@@ -130,34 +130,3 @@
       </span>
   </div>
 </div>
-
-<!--
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="#">Auth0 - Angular</a>
-  
-        <button
-          class="btn btn-primary btn-margin"
-          routerLink="/">
-            Home
-        </button>
-  
-        <button
-          class="btn btn-primary btn-margin"
-          *ngIf="!auth.isAuthenticated()"
-          (click)="auth.login()">
-            Log In
-        </button>
-  
-        <button
-          class="btn btn-primary btn-margin"
-          *ngIf="auth.isAuthenticated()"
-          (click)="auth.logout()">
-            Log Out
-        </button>
-  
-      </div>
-    </div>
-  </nav>
-  -->

@@ -6,6 +6,7 @@ import { SeedyService } from '../../services/seedy/seedy.service';
 import { SearchPipe } from '../../services/pipes/search.pipe';
 import { Ad } from '../../models/class/ad';
 import { ads } from '../../models/mocks/ads-mock';
+import { AuthenticationService } from '../../services/auth/authentication.service';
 
 @Component({
   selector: 'app-home',
@@ -27,7 +28,8 @@ import { ads } from '../../models/mocks/ads-mock';
 
 export class HomeComponent implements OnInit {
 
-  constructor(private modalService: NgbModal, public deviceService: DeviceDetectorService, public seedysInteraction: SeedyService) { }
+  constructor(private modalService: NgbModal, public deviceService: DeviceDetectorService, public seedysInteraction: SeedyService,
+      public authService: AuthenticationService) { }
 
   actualitiesList = [];
 
@@ -86,6 +88,12 @@ export class HomeComponent implements OnInit {
                 console.log(dismissReason);
             }
         });
+    }
+  }
+
+  redirectTo(path: string): void {
+    if (path === 'forum') {
+      window.location.href = 'http://www.forum.troctagraine.fr';
     }
   }
 }

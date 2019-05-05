@@ -13,26 +13,35 @@
 
 
     <div class="menu">
-        <div id="login" class="nav-button " routerLink='/login'>
-            Se connecter
+        <div id="login" *ngIf="!authService.isAuthenticated()" class="nav-button " (click)='authService.login()'>
+            Se Connecter
         </div>
+
+        <div id="login" *ngIf="authService.isAuthenticated()" class="nav-button " routerLink='/account'>
+            Mon Compte
+        </div>
+
+        <div id="login" *ngIf="authService.isAuthenticated()" class="nav-button " (click)='authService.logout()'>
+            Se Déconnecter
+        </div>
+
 
         <div id="ads" class="nav-button" routerLink='/ads'>
             <div class="help">?</div>
-            Espace troc
+            Annonces
         </div>
 
         <div id="garden" class="nav-button">
             <div class="help" (click)="showModal(info, 'perma')">?</div>
-            <span routerLink='/garden'>Partage ton jardin</span>
+            <span routerLink='/garden'>Partage ton Jardin</span>
         </div>
 
         <div id="perma" class="nav-button">
             <div class="help" (click)="showModal(info, 'perma')">?</div>
-            La permaculture
+            La Permaculture
         </div>
 
-        <div id="forum" class="nav-button" routerLink=''>
+        <div id="forum" class="nav-button" routerLink='/forum'>
             Forum
         </div>
 
@@ -43,7 +52,7 @@
 
         <div id="kesako" class="nav-button" routerLink='/kesako'>
             <div class="help" (click)="showModal(info, 'kesako')">?</div>
-            Késako
+            Kesako
         </div>
 
         <ng-template #info let-cl="close" let-di="dismiss">  
@@ -93,18 +102,18 @@
 
             <div class="header">
                 <div id="ads" class="nav-button" routerLink='/ads'>
-                    Espace troc
+                    Annonces
                 </div>
         
                 <div id="garden" class="nav-button">
-                    Partage ton jardin
+                    Partage ton Jardin
                 </div>
         
                 <div id="perma" class="nav-button">
-                    La permaculture
+                    La Permaculture
                 </div>
         
-                <div id="forum" class="nav-button" routerLink=''>
+                <div id="forum" class="nav-button" (click)="redirectTo('forum')">
                     Forum
                 </div>
         
@@ -113,14 +122,23 @@
                 </div>
         
                 <div id="kesako" class="nav-button" routerLink='/kesako'>
-                    Késako
+                    Kesako
                 </div> 
             </div>
 
             <div class="footer">
-                <div id="login" class="nav-button" routerLink='/login'>
-                    Se connecter
+                <div id="login" *ngIf="!authService.isAuthenticated()" class="nav-button" (click)='authService.login()'>
+                    Se Connecter
                 </div>
+        
+                <div id="login" *ngIf="authService.isAuthenticated()" class="nav-button " routerLink='/account'>
+                    Mon Compte
+                </div>
+
+                <div id="login" *ngIf="authService.isAuthenticated()" class="nav-button " (click)='authService.logout()'>
+                    Déconnexion
+                </div>
+        
             </div>
         </div>
     </div>
@@ -142,7 +160,7 @@
                     <h2 class="title upper-c">Actualités</h2>
                     <div class="actu">
                         <div class="left-side">
-                            <p>Texte à afficher</p>
+                            <p>Text à afficher</p>
                         </div>
 
                         <div class="right-side">
@@ -224,16 +242,16 @@
                 <div class="col">
                     <!-- <div class="list" *ngIf="adsList"> -->
                     <div class="list">
-                        <!--<div class="ad" *ngFor="let ad of adsList"></div>-->
-                        <div class="ad">
+                        <div class="ad" *ngFor="let ad of adsList">
+                        <!-- <div class="ad"> -->
                             <div class="left-side">
                                 <img src='../../../assets/img/seed.png' alt="image_ad" title="image de l'annonce">
                             </div>
 
                             <div class="right-side">
-                                <div class="ad-title">TROC DE HARICOT AURA</div>
+                                <div class="ad-title">{{ ad.type }} de {{ ad.seedVariety.name }}</div>
                                 <div class="ad-infos">
-                                    par <em class="underlined">Vincent Times</em>
+                                    par <em class="underlined">{{ ad.author.name }}</em>
                                     <p>Malakoff</p>
                                 </div>
 
@@ -246,7 +264,7 @@
                             </div>
                         </div>
 
-                        <div class="ad">
+                        <!-- <div class="ad">
                             <div class="left-side">
                                 <img src='../../../assets/img/seed.png'  alt="image_ad" title="image de l'annonce">
                             </div>
@@ -295,7 +313,7 @@
                                 <div class="ad-title">TROC DE HARICOT AURA</div>
                                 <div class="ad-infos">
                                     par <em class="underlined">Vincent Times</em>
-                                    <p>Malakoffmuniste</p>
+                                    <p>Malakoff</p>
                                 </div>
 
                                 <div class="ad-more">
@@ -304,7 +322,7 @@
                                     </span>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
 
@@ -315,9 +333,9 @@
 
             <div class="row">
                 <div class="offset-3 col-6 ">
-                    <div class="btn-new">
+                    <div class="btn-new" routerLink='/ads/formular'>
                         <span>
-                            <img class="seedy" placement="left" (mouseenter)="setSeedyText()" [ngbTooltip]="seedyText" src="../../../assets/img/Heureux.png" (click)='seedyIsClicked = true' [ngStyle]="seedyIsClicked === true ? {'transform': 'rotate(360deg)'} : ''"  alt="seedy" title="Seedy la petite graine toute mignonne">
+                            <img class="seedy" placement='left' (mouseenter)='seedyText = seedysInteraction.setSeedyText(seedyIsClicked)' [ngbTooltip]="seedyText" src="../../../assets/img/Heureux.png" (click)='seedyIsClicked = true' [ngStyle]="seedyIsClicked === true ? {'transform': 'rotate(360deg)'} : ''"  alt="seedy" title="Seedy la petite graine toute mignonne">
                             Dépose une annonce
                             <img class="arrow" src="../../../assets/img/flecheDblanche.png" alt="right_arrow" title="droite">
                         </span>
@@ -329,10 +347,10 @@
 
     <div class="social-medias">
         <div class="list">
-            <img class="img-rs" src="../../../assets/img/facebook.svg" alt="facebook">
-            <img class="img-rs" src="../../../assets/img/insta.png" alt="instagram">
-            <img class="img-rs" src="../../../assets/img/youtube.svg" alt="youtTube">
-            <img class="img-rs" src="../../../assets/img/twitter.svg" alt="twitter">
+            <img class='img-rs' src='../../../assets/img/facebook.svg' alt="facebook">
+            <img class='img-rs' src="../../../assets/img/insta.png" alt="instagram">
+            <img class='img-rs' src="../../../assets/img/youtube.svg" alt="youtTube">
+            <img class='img-rs' src="../../../assets/img/twitter.svg" alt="twitter">
         </div>
 
         <div class="chart">Charte d'utilisation | Mentions légales</div>

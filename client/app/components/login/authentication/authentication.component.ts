@@ -49,9 +49,6 @@ import 'rxjs/add/operator/first';
 export class AuthenticationComponent implements OnInit {
 
   private _log = new Subject<string>();
-
-  // ngModel
-  // login: string;
   password: string;
 
   testMessage: string;
@@ -67,34 +64,18 @@ export class AuthenticationComponent implements OnInit {
   menuIsHidden: boolean;
 
   constructor(public authService: AuthenticationService,
-    private activateRoute: ActivatedRoute,
-    private router: Router,
-    private authenticationService: AuthenticationService) {
-  // constructor(public auth: AuthenticationService) {
-    // auth.handleAuthentication();
+              private activateRoute: ActivatedRoute,
+              private router: Router,
+              private authenticationService: AuthenticationService) {
   }
 
   ngOnInit() {
-    /*
-    if (this.auth.isAuthenticated()) {
-      this.auth.renewTokens();
-    }
-    */
 
     this.menuIsHidden = true;
-
-    // reset login status
-    this.authenticationService.logout();
-
-    // get return url from route parameters or default to '/'
-    this.returnUrl = this.activateRoute.snapshot.queryParams['returnUrl'] || '/';
-
     this.users = users;
 
     this._log.subscribe((message) => this.testMessage = message);
-    this._log.pipe(
-      debounceTime(5000)).subscribe(() => this.testMessage = null);
-
+    this._log.pipe(debounceTime(5000)).subscribe(() => this.testMessage = null);
   }
 
   displayAlertMessage(reason: string, type: string): void {
@@ -102,28 +83,12 @@ export class AuthenticationComponent implements OnInit {
     this._log.next(reason);
   }
 
-  /*
   authentication(login: string, password: string): void {
-    if (this.authService.login(login, password) === true) {
+    if (this.authService.testlogin(login, password) === true) {
       this.router.navigate(['/home']);
       this.displayAlertMessage('Vous êtes connecté.', 'success');
     } else {
       this.displayAlertMessage('Mauvais identifiants', 'danger');
     }
-  } */
-
-
-  login() {
-    this.loading = true;
-    this.authenticationService.login(this.model.username, this.model.password)
-        .first()
-        .subscribe(
-            data => {
-                this.router.navigate([this.returnUrl]);
-            },
-            error => {
-                this.error = error;
-                this.loading = false;
-            });
-    }
+  }
 }

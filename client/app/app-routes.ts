@@ -14,7 +14,7 @@ import { AdsListComponent } from './components/ads/ads-list/ads-list.component';
 import { AdsFormularComponent } from './components/ads/ads-formular/ads-formular.component';
 import { RegistrationComponent } from './components/login/registration/registration.component';
 import { AuthenticationComponent } from './components/login/authentication/authentication.component';
-import { AuthGuard } from './guards/auth.guard';
+import { AuthenticationGuard } from './guards/authentication.guard';
 
 export const routes: Routes = [
     { path: '', children: [
@@ -26,16 +26,17 @@ export const routes: Routes = [
             { path: 'auth', component: AuthenticationComponent },
             { path: 'register', component: RegistrationComponent},
         ]},
+
         { path: 'documentation', component: DocumentationComponent },
         { path: 'ads', component: AdsComponent, children: [
             { path: '', redirectTo: 'list', pathMatch: 'full'},
             { path: 'list', component: AdsListComponent },
-            { path: 'formular', component: AdsFormularComponent, canActivate: [AuthGuard] },
-            { path: 'list/detail/:id', component: AdDetailComponent, canActivate: [AuthGuard] },
-
+            { path: 'formular', component: AdsFormularComponent, canActivate: [AuthenticationGuard] },
+            { path: 'list/detail/:id', component: AdDetailComponent },
         ]},
+
         { path: 'ads/:id', component: AdDetailComponent },
-        { path: 'garden', component: ShareYourGardenComponent, canActivate: [AuthGuard], children: [
+        { path: 'garden', component: ShareYourGardenComponent, canActivate: [AuthenticationGuard], children: [
             { path: '', redirectTo: 'list', pathMatch: 'full' },
             { path: 'list', component: GardenListComponent},
             { path: 'formular', component: GardenFormularComponent },
