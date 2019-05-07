@@ -13,6 +13,8 @@ export class ListComponent implements OnInit {
   showAd: boolean;
   adsList: Ad[] = [];
 
+  selectedAd: Ad;
+
   constructor() { }
 
   ngOnInit() {

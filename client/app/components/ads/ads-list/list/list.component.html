@@ -1,5 +1,5 @@
 <div class="list" >
-    <div class="ad" *ngFor="let ad of adsList" (click)='showsAd = true'>
+    <div class="ad" *ngFor="let ad of adsList" (click)='showsAd = true; selectedAd = ad'>
         <div class="left-side">
             <img src='../../../assets/img/seed.png' alt="image_ad" title="image de l'annonce">
         </div>
@@ -21,4 +21,4 @@
     </div>
 </div>
 
-<app-detail [ad]='ad'></app-detail>
+<app-detail [list]='selectedAd'></app-detail>

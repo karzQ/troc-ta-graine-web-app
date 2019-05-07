@@ -8,7 +8,7 @@ import { Ad } from '../../../../models/class/ad';
 })
 export class DetailComponent implements OnInit {
 
-  @Input() ad: Ad;
+  @Input() list: Ad;
 
   constructor() { }
 

@@ -14,7 +14,7 @@ export class AdsListComponent implements OnInit {
   context: string;
   adList: Ad[];
 
-  constructor(private deviceService: DeviceDetectorService, private modalService: NgbModal) { }
+  constructor(public deviceService: DeviceDetectorService, private modalService: NgbModal) { }
 
   ngOnInit() {
     this.adList = ads;

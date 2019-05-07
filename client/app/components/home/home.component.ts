@@ -30,9 +30,6 @@ export class HomeComponent implements OnInit {
 
   actualitiesList = [];
 
-  seedyText: string;
-  seedyIsClicked = false;
-
   context: string;
   menuIsHidden: boolean;
   actualDevice: string;
@@ -43,7 +40,6 @@ export class HomeComponent implements OnInit {
     console.log(`Est-ce un pc ? '${this.deviceService.isDesktop()}`);
     console.log(`Est-ce une tablette ? '${this.deviceService.isTablet()}`);
     this.menuIsHidden = true;
-    this.seedyText = this.seedysInteraction.setSeedyText(this.seedyIsClicked);
   }
 
   redirectTo(path: string): void {

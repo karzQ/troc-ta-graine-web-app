@@ -3,6 +3,7 @@ import { Ad } from '../../../models/class/ad';
 import { ads } from '../../../models/mocks/ads-mock';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { SeedyService } from '../../../services/seedy/seedy.service';
 
 @Component({
   selector: 'app-troc',
@@ -13,11 +14,16 @@ export class TrocComponent implements OnInit {
 
   adsList: Ad[] = [];
   context: string;
+  seedyText: string;
+  seedyIsClicked = false;
 
-  constructor(private deviceService: DeviceDetectorService, private modalService: NgbModal) { }
+  adsModel: string;
+
+  constructor(private deviceService: DeviceDetectorService, private modalService: NgbModal, public seedysInteraction: SeedyService) { }
 
   ngOnInit() {
     this.adsList = ads;
+    this.seedyText = this.seedysInteraction.setSeedyText(this.seedyIsClicked);
   }
 
   showModal(template, context?: string) {
