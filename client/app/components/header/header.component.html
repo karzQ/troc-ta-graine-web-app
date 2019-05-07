@@ -29,32 +29,36 @@
             Se Déconnecter
         </div>
 
+        <div *ngIf="home === true" id="home" class="nav-button" routerLink='/home'>
+            <div class="help">?</div>
+            Accueuil
+        </div>
 
-        <div id="ads" class="nav-button" routerLink='/ads'>
+        <div *ngIf="ads === true" id="ads" class="nav-button" routerLink='/ads'>
             <div class="help">?</div>
             Annonces
         </div>
 
-        <div id="garden" class="nav-button">
+        <div *ngIf="garden === true" id="garden" class="nav-button">
             <div class="help" (click)="showModal(info, 'perma')">?</div>
             <span routerLink='/garden'>Partage ton Jardin</span>
         </div>
 
-        <div id="perma" class="nav-button">
+        <div *ngIf="perma === true" id="perma" class="nav-button">
             <div class="help" (click)="showModal(info, 'perma')">?</div>
             La Permaculture
         </div>
-
-        <div id="forum" class="nav-button" routerLink='/forum'>
+ 
+        <div *ngIf="forum === true" id="forum" class="nav-button" routerLink='/forum'>
             Forum
         </div>
 
-        <div id="doc" class="nav-button" routerLink='/documentation'>
+        <div *ngIf="documentation === true" id="doc" class="nav-button" routerLink='/documentation'>
             <div class="help" (click)="showModal(info, 'doc')">?</div>
             Documentation
         </div>
 
-        <div id="kesako" class="nav-button" routerLink='/kesako'>
+        <div *ngIf="kesako === true" id="kesako" class="nav-button" routerLink='/kesako'>
             <div class="help" (click)="showModal(info, 'kesako')">?</div>
             Kesako
         </div>

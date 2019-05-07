@@ -1,5 +1,5 @@
-<div class="ads-listing" *ngIf="deviceService.isMobile()">
-  <app-header></app-header>
+<div class="ads-listing" *ngIf="deviceService.isMobile()" [@fadeInOut]>
+  <app-header [home]='true' [ads]='false'></app-header>
 
   <div class="content container">
     <h4 class="title">Les annonces</h4>
@@ -35,7 +35,7 @@
 
   <div class="gradient-separator" *ngIf="adList.length > 4"></div>
 
-  <div class="ad-btn-new">
+  <div class="ad-btn-new" routerLink='/ads/formular'>
     <span>
       Dépose une annonce
       <img src="../../../../assets/img/flecheDblanche.png">

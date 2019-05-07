@@ -4,7 +4,6 @@ import { AboutComponent } from './components/about/about.component';
 import { LoginComponent } from './components/login/login.component';
 import { AdsComponent } from './components/ads/ads.component';
 import { ShareYourGardenComponent } from './components/share-your-garden/share-your-garden.component';
-import { AdDetailComponent } from './components/ads/ad-detail/ad-detail.component';
 import { DocumentationComponent } from './components/documentation/documentation.component';
 import { UnauthorizedComponent } from './components/unauthorized/unauthorized.component';
 import { GardenFormularComponent } from './components/share-your-garden/garden-formular/garden-formular.component';
@@ -33,10 +32,8 @@ export const routes: Routes = [
             { path: 'list', component: AdsListComponent },
             // { path: 'formular', component: AdsFormularComponent, canActivate: [AuthenticationGuard] },
             { path: 'formular', component: AdsFormularComponent },
-            { path: 'list/detail/:id', component: AdDetailComponent },
         ]},
 
-        { path: 'ads/:id', component: AdDetailComponent },
         // { path: 'garden', component: ShareYourGardenComponent, canActivate: [AuthenticationGuard], children: [
         { path: 'garden', component: ShareYourGardenComponent, children: [
             { path: '', redirectTo: 'list', pathMatch: 'full' },

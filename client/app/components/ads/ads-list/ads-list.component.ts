@@ -3,11 +3,23 @@ import { ads } from '../../../models/mocks/ads-mock';
 import { Ad } from '../../../models/class/ad';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { trigger, transition, style, animate, state } from '@angular/animations';
 
 @Component({
   selector: 'app-ads-list',
   templateUrl: './ads-list.component.html',
-  styleUrls: ['./ads-list.component.less']
+  styleUrls: ['./ads-list.component.less'],
+  animations: [
+    trigger('fadeInOut', [
+      state('void', style({
+        opacity: 0,
+      })),
+
+      transition('void <=> *', [
+        animate(750)
+      ]),
+    ]),
+  ]
 })
 export class AdsListComponent implements OnInit {
 

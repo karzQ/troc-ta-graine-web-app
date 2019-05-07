@@ -22,7 +22,6 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { NotificationComponent } from './components/notification/notification.component';
 import { ShareYourGardenComponent } from './components/share-your-garden/share-your-garden.component';
-import { AdDetailComponent } from './components/ads/ad-detail/ad-detail.component';
 import { UnauthorizedComponent } from './components/unauthorized/unauthorized.component';
 import { RegistrationComponent } from './components/login/registration/registration.component';
 import { ForgottenPwdComponent } from './components/login/forgotten-pwd/forgotten-pwd.component';
@@ -56,7 +55,6 @@ import { DetailComponent } from './components/ads/ads-list/detail/detail.compone
     LoginComponent,
     NotificationComponent,
     ShareYourGardenComponent,
-    AdDetailComponent,
     UnauthorizedComponent,
     RegistrationComponent,
     ForgottenPwdComponent,
