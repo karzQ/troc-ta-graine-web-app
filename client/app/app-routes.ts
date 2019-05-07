@@ -31,17 +31,19 @@ export const routes: Routes = [
         { path: 'ads', component: AdsComponent, children: [
             { path: '', redirectTo: 'list', pathMatch: 'full'},
             { path: 'list', component: AdsListComponent },
-            { path: 'formular', component: AdsFormularComponent, canActivate: [AuthenticationGuard] },
+            // { path: 'formular', component: AdsFormularComponent, canActivate: [AuthenticationGuard] },
+            { path: 'formular', component: AdsFormularComponent },
             { path: 'list/detail/:id', component: AdDetailComponent },
         ]},
 
         { path: 'ads/:id', component: AdDetailComponent },
-        { path: 'garden', component: ShareYourGardenComponent, canActivate: [AuthenticationGuard], children: [
+        // { path: 'garden', component: ShareYourGardenComponent, canActivate: [AuthenticationGuard], children: [
+        { path: 'garden', component: ShareYourGardenComponent, children: [
             { path: '', redirectTo: 'list', pathMatch: 'full' },
             { path: 'list', component: GardenListComponent},
             { path: 'formular', component: GardenFormularComponent },
             { path: 'list/detail/:id', component: GardenDetailComponent},
         ]},
-    ]},
-    { path: '**', component: UnauthorizedComponent },
+        { path: '**', component: UnauthorizedComponent },
+    ]}
 ];

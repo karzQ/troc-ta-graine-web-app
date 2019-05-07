@@ -1,67 +1,84 @@
-<div class="list">
+<div class="ads-listing" *ngIf="deviceService.isMobile()">
+  <app-header></app-header>
 
-  <div class="header">
-    <h2>Les annonces</h2>
-    <div class="actions">
-      <div class="geolocalication">
-        <img src="#" alt="..." title="...">
-        <p>Autour de moi</p>
-      </div>
+  <div class="content container">
+    <h4 class="title">Les annonces</h4>
+    <div class="row tools">
+      <div class="col buttons">
 
-      <div class="filters">
-        <img src="#" alt="..." title="...">
-        <p>Filtres</p>
-      </div>
-
-      <input placeholder="mots clés" type="text" name="ad_search">
-    </div>
-  </div>
-
-  <div class="content">
-    <div class="ads-list">
-      <div class="ad" *ngFor="let ad of cards">
-        <div class="img">
-          <img src="#" alt="..." title="...">
+        <div class="tool geoloc" placement='top' ngbTooltip='Autour de moi'
+          (click)="showModal(geoloc)">
+      
+          <img src="../../../assets/img/PICTO_CIBLE.png" alt="arround_me" title="Autour de moi">
         </div>
-        <div class="description">
-          <h4>Title</h4>
-          <p>Par quelqu'un</p>
-          <p>annonce située à ...</p>
-          <a class="view-details" [routerLink]="'/ads/list/detail/' + ad.id">Voir l'annonce</a>
+      
+        <div class="tool filter" placement='top' ngbTooltip='Filtres'
+            (click)="showModal(filters)">
+      
+            <img src="../../../assets/img/picto_settings.png" alt="filters" title="Filtres">
         </div>
+
+      </div>
+
+      <div class="col search">
+        <input type="search" placeholder="Recherche ...">
       </div>
     </div>
-  </div>
 
-  <div class="footer">
-    <div class="footer newAd" routerLink='/ads/formular' style="position:fixed; cursor:pointer; left:0; bottom:0;width:100%; height: 80px;background-color: green; text-align: center; color: white;padding-top: 15px; font-size: 2.0em;">
-      <span>Créer une annonce<img src="#" alt="..." title="..."></span>
-    </div>
-    <img src="#" alt="..." title="..." style="position: fixed; left: 35px; bottom: 60px;">
-  </div>
-
-<!-- SLIDER
-  <input class="nav-button left" type="image" src="../../../assets/img/right-arrow.svg" 
-  (click)="changePosition('left')">
-
-  <div class="card" style="width: 18rem;" 
-  [ngClass]="primaryPos === cards.indexOf(card) ? 'primary' : 'secondary'"
-  *ngFor="let card of cards"
-  [style.display]="checkCardPosition(card) ? 'inherit' : 'none'"
-  (click)="getCardPosition(card); primaryPos = getCardPosition(card)">
-
-    <div>
-      <img src="#" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">[{{card.type}}] - Graine de {{ card.seedVariety[0].name }}</h5>
-        <p class="card-text">Je vous propose 3kg de {{ card.seedVariety[0].name }}.</p>
-        <a href="#" class="btn btn-primary">Voir l'article</a>
+    <div class="row">
+      <div class="col">
+        <app-list [list]='adList'></app-list>
       </div>
     </div>
+
   </div>
 
-  <input class="nav-button" type="image" src="../../../assets/img/right-arrow.svg" 
-  (click)="changePosition('right')">
--->
+  <div class="gradient-separator" *ngIf="adList.length > 4"></div>
 
+  <div class="ad-btn-new">
+    <span>
+      Dépose une annonce
+      <img src="../../../../assets/img/flecheDblanche.png">
+    </span>
+  </div>
 </div>
+
+<ng-template #filters let-cl="close" let-di="dismiss">  
+    <div class="modal-content ttg-modal">  
+        <div class="modal-header">  
+            <h5 class="modal-title ttg-modal-title">Filtres</h5>
+            <button type="button" class="close" (click)="cl()">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+
+        <div class="modal-body ttg-modal-text">
+            Soon ...
+        </div>
+
+        <div class="modal-footer ttg-modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="di()">Fermer</button>
+            <button type="button" class="btn btn-success" (click)="di()">Valider</button>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #geoloc let-cl="close" let-di="dismiss">  
+    <div class="modal-content ttg-modal">  
+        <div class="modal-header">  
+            <h5 class="modal-title ttg-modal-title">Autour de moi</h5>
+            <button type="button" class="close" (click)="cl()">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+
+        <div class="modal-body ttg-modal-text">
+            Soon ... 
+        </div>
+
+        <div class="modal-footer ttg-modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="di()">Fermer</button>
+            <button type="button" class="btn btn-success" (click)="di()">Valider</button>
+        </div>
+    </div>
+</ng-template>

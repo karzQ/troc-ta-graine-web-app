@@ -1,55 +1,83 @@
-<div class="container-fluid divLogo">
-    <!-- Affiché sur desktop -->
-    <div class="col-12 center">
-        <a routerLink="index.html"></a><img class="img-fluid logo" src="../../../assets/img/logo_final.png" alt="Troc ta Graine">
-    </div>
 
-    
-    <!-- Affiché sur mobile -->
-    <nav class="navbar navbar-light navbar-expand-lg">
-        <a class="navbar-brand logo" routerLink="index.html">
-            <img class="img-fluid" src="../../../assets/img/logo_final.png" alt="Troc ta Graine">
-        </a>
-
-        <button (click)="toggleState(); getValue();" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <a class="nav-item nav-link" routerLink="home">Accueil</a>
-            <a class="nav-item nav-link" routerLink="about">À propos</a>
-            <a class="nav-item nav-link" routerLink="ads">Annonces</a>
-            <a class="nav-item nav-link" routerLink="login">Se connecter</a>
-            <div class="dropdown-divider"></div>
-            <a class="nav-item nav-link" routerLink="shareYourGarden">Partage ton jardin</a>
-          </div>
-        </div>
-    </nav>
-</div>
-
-<!-- NAVIGATION -->
-<!-- <div *ngIf="visible" [style.height]="visible ? '50px' : '0'" class="navigationBarreSimple"> -->
-<div class="navigationBarreSimple">
-  <div class="row">
-    <div class="col">
-      <a routerLink="home">Home</a>
-    </div>
-
-    <div class="col">
-      <a routerLink="about">About</a>
-    </div>
-
-    <div class="col">
-      <a routerLink="ads">Ads</a>
-    </div>
-
-    <div class="col">
-      <a routerLink="login">Login</a>
-    </div>
-
-    <div class="col">
-      <a routerLink="garden">Share</a>
-    </div>
+<div class="header">
+  <img class="seedy" src="../../../../assets/img/Heureux.png" alt="seedy" title="seedy">
+  
+  <div class="brand">
+    <img src="../../../assets/img/Logo Seul Dégradé Vert.png" title="logo" alt="logo">
   </div>
-  <hr>
+
+  <div class="menu">
+    <img (click)="menuIsHidden = false" src="../../../assets/img/LEAF_MENU.png" alt="menu" title="menu">
+  </div>
 </div>
+
+<div class="nav-menu" *ngIf="menuIsHidden === false" [@flyInOut]>
+    <div class="nav-head" >
+        <img (click)='menuIsHidden = true' src="../../../assets/img/flecheDblanche.png">
+    </div>
+
+    <div class="navigation">
+        <div id="login" *ngIf="!authService.isAuthenticated()" class="nav-button " (click)='authService.login()'>
+            Se Connecter
+        </div>
+
+        <div id="login" *ngIf="authService.isAuthenticated()" class="nav-button " routerLink='/account'>
+            Mon Compte
+        </div>
+
+        <div id="login" *ngIf="authService.isAuthenticated()" class="nav-button " (click)='authService.logout()'>
+            Se Déconnecter
+        </div>
+
+
+        <div id="ads" class="nav-button" routerLink='/ads'>
+            <div class="help">?</div>
+            Annonces
+        </div>
+
+        <div id="garden" class="nav-button">
+            <div class="help" (click)="showModal(info, 'perma')">?</div>
+            <span routerLink='/garden'>Partage ton Jardin</span>
+        </div>
+
+        <div id="perma" class="nav-button">
+            <div class="help" (click)="showModal(info, 'perma')">?</div>
+            La Permaculture
+        </div>
+
+        <div id="forum" class="nav-button" routerLink='/forum'>
+            Forum
+        </div>
+
+        <div id="doc" class="nav-button" routerLink='/documentation'>
+            <div class="help" (click)="showModal(info, 'doc')">?</div>
+            Documentation
+        </div>
+
+        <div id="kesako" class="nav-button" routerLink='/kesako'>
+            <div class="help" (click)="showModal(info, 'kesako')">?</div>
+            Kesako
+        </div>
+    </div>
+</div>
+
+<ng-template #info let-cl="close" let-di="dismiss">  
+    <div class="modal-content ttg-modal">  
+        <div class="modal-header">  
+            <h5 class="modal-title ttg-modal-title">Informations</h5>
+            <button type="button" class="close" (click)="cl()">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+
+        <div class="modal-body ttg-modal-text">
+            <p *ngIf="context === 'perma'">Texte sur la permaculture</p>
+            <p *ngIf="context === 'doc'">Doc</p>
+            <p *ngIf="context === 'kesako'">Kesako</p>
+        </div>
+
+        <div class="modal-footer ttg-modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="di()">Fermer</button>
+        </div>
+    </div>
+</ng-template>

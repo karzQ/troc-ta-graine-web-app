@@ -1,84 +1,108 @@
+@media all {
+    @media (max-width: 425px) {
+        .header{
+            position: relative;
+            height: 21vh;
+            // background-color: aqua;
 
-// MEDIA QUERIES : Mobile IphoneX
-@media screen and (max-width: 700px){
-    .divLogo {
-        padding: 5px; 
-        background-color: #FFF4CA;
-    
-        .center {
-            display: none;
-        }
-    
-        img {
-            width: 100px;
-            align-content: center;
-        }
-    }
-    
-    .navigationBarreSimple {
-        transition: all 0.2s ease 0s;
-
-        text-align: center;
-    
-        padding: 15px 0 0 0;
-        
-        font-size: 0.8em;
-        color: #225B25;
-        overflow: hidden;
-        
-        a {
-            transition: all 0.3s ease 0s;
-            text-decoration: none;
-    
-            :hover {
-                color: black;
-            }
-        }    
-    }
-}
-
-
-// MEDIA QUERIES : Desktop
-@media screen and (min-width: 701px) {
-    .divLogo {
-        padding: 20px 0 20px 0; 
-        background-color: #FFF4CA;
-    
-        .center {
             text-align: center;
-    
-            .logo {
-                width: 200px;
-            }
-        }
-    
-        img {
-            align-content: center;
-        }
-    }
 
-    .navbar{
-        visibility: hidden;
-        display: none;
-        
-    }
-    
-    .navigationBarreSimple {
-        text-align: center;
-    
-        padding: 20px 0 0 0;
-        
-        font-size: 1.0em;
-        color: #225B25;
-        
-        a {
-            transition: all 0.3s ease 0s;
-            text-decoration: none;
-    
-            :hover {
-                color: black;
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+
+            .seedy {
+                position: absolute;
+                top: 30%;
+                left: 7%;
+                
+                width: 45px;
             }
-        }    
+
+            .menu {
+                position: absolute;
+                right: 7%;
+                top: 15%;
+
+                img {
+                    width: 50px;
+                }
+            }
+
+            .brand {
+                position: absolute;
+                margin-top: 40px;
+
+                img {
+                    top: 50px;
+                    width: 150px;
+                }
+            }
+        }
+
+        .nav-menu {
+            position: fixed;
+            width: 100%;
+            height: calc(~'100% - 60px');
+        
+            top: 0;
+            left: 0;
+        
+            z-index: 90;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            color: white;
+        
+            background: linear-gradient(to bottom,
+                #9BED65 0%,
+                #70C651 16.6%,
+                #459E3C 32.2%,
+                #23802B 49.8%,
+                #08671F 66.4%,
+                #015719 88.3%
+                #015719 100%);
+        
+            .nav-head{
+                position: relative;
+                height: 50px;
+                img {
+                    position: relative;
+                    float: right;
+                    margin: 15px 20px 0 0;
+        
+                    width: 25px;
+                }
+            }
+            
+            .navigation {
+                position: relative;
+                .nav-button{
+                    position: relative;
+                    height: 29%;
+                    width: 100%;
+                    display: flex;
+                    z-index: 99;
+            
+                    font-size: 1.6rem;
+            
+                    flex-direction: column;
+                    justify-content: center;
+                    text-align: center;
+            
+                    .help{
+                        z-index: 1000;
+                        position: absolute;
+                        width: 30px;
+                        height: 30px;
+                        right: 0;
+                        top: 0;
+            
+                        font-weight: bold;
+                        font-size: 0.8em;
+                    }
+                }
+            }
+        }
     }
 }
-

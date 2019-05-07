@@ -1,0 +1,24 @@
+<div class="list" >
+    <div class="ad" *ngFor="let ad of adsList" (click)='showsAd = true'>
+        <div class="left-side">
+            <img src='../../../assets/img/seed.png' alt="image_ad" title="image de l'annonce">
+        </div>
+
+        <div class="right-side">
+            <div class="ad-title">{{ ad.type }} de {{ ad.seedVariety[0].name }}</div>
+            <div class="ad-infos">
+                par <em class="underlined">{{ ad.author.username }}</em>
+                <p>Malakoff</p>
+            </div>
+
+            <div class="ad-more">
+                <span>
+                    Voir l'annonce
+                    <img src='../../../assets/img/flecheDverte.png' alt="right_arrow" title="droite">
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-detail [ad]='ad'></app-detail>

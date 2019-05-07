@@ -13,7 +13,6 @@ import { DeviceDetectorModule } from 'ngx-device-detector';
 
 // Components
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
 import { AccountComponent } from './components/account/account.component';
 import { AdministrationComponent } from './components/administration/administration.component';
 import { AboutComponent } from './components/about/about.component';
@@ -39,11 +38,15 @@ import { CallbackComponent } from './components/callback/callback.component';
 // Services
 import { AuthenticationService } from './services/auth/authentication.service';
 import { UserService } from './services/data/user/user.service';
+import { TrocComponent } from './components/home/troc/troc.component';
+import { SocialMediaComponent } from './components/home/social-media/social-media.component';
+import { HeaderComponent } from './components/header/header.component';
+import { ListComponent } from './components/ads/ads-list/list/list.component';
+import { DetailComponent } from './components/ads/ads-list/detail/detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
     AccountComponent,
     AdministrationComponent,
     AboutComponent,
@@ -65,6 +68,11 @@ import { UserService } from './services/data/user/user.service';
     AdsFormularComponent,
     AuthenticationComponent,
     CallbackComponent,
+    TrocComponent,
+    SocialMediaComponent,
+    HeaderComponent,
+    ListComponent,
+    DetailComponent,
   ],
 
   imports: [

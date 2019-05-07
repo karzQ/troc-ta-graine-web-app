@@ -1,23 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { ads } from '../../../models/mocks/ads-mock';
 import { Ad } from '../../../models/class/ad';
+import { ads } from '../../../models/mocks/ads-mock';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-ads-list',
-  templateUrl: './ads-list.component.html',
-  styleUrls: ['./ads-list.component.less']
+  selector: 'app-troc',
+  templateUrl: './troc.component.html',
+  styleUrls: ['./troc.component.less']
 })
-export class AdsListComponent implements OnInit {
+export class TrocComponent implements OnInit {
 
+  adsList: Ad[] = [];
   context: string;
-  adList: Ad[];
 
   constructor(private deviceService: DeviceDetectorService, private modalService: NgbModal) { }
 
   ngOnInit() {
-    this.adList = ads;
+    this.adsList = ads;
   }
 
   showModal(template, context?: string) {
