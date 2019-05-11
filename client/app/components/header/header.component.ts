@@ -21,12 +21,14 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 export class HeaderComponent implements OnInit {
 
   @Input() home: boolean;
-  @Input() ads?: boolean = true;
-  @Input() garden?: boolean = true;
-  @Input() forum?: boolean = true;
-  @Input() perma?: boolean = true;
-  @Input() kesako?: boolean = true;
-  @Input() documentation?: boolean = true;
+  @Input() ads = true;
+  @Input() garden = true;
+  @Input() forum = true;
+  @Input() perma = true;
+  @Input() kesako = true;
+  @Input() documentation = true;
+  @Input() backBtn: boolean ;
+  @Input() backRedirectTo: string;
 
   menuIsHidden: boolean;
 

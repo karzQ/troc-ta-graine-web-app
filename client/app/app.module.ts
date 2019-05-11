@@ -42,6 +42,7 @@ import { SocialMediaComponent } from './components/home/social-media/social-medi
 import { HeaderComponent } from './components/header/header.component';
 import { ListComponent } from './components/ads/ads-list/list/list.component';
 import { DetailComponent } from './components/ads/ads-list/detail/detail.component';
+import { FormularComponent } from './components/ads/ads-formular/formular/formular.component';
 
 @NgModule({
   declarations: [
@@ -71,6 +72,7 @@ import { DetailComponent } from './components/ads/ads-list/detail/detail.compone
     HeaderComponent,
     ListComponent,
     DetailComponent,
+    FormularComponent,
   ],
 
   imports: [

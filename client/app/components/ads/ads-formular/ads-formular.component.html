@@ -1,5 +1,8 @@
 <div class="ad-formular" [@flyInOut]>
-  <p>
-    ads-formular works!
-  </p>
+  <div class="headpage" >
+    <app-header backRedirectTo='/ads/list' [backBtn]='true' [home]='true' [ads]='false'></app-header>
+  </div>
+  <div class="content container">
+    <app-formular></app-formular>
+  </div>
 </div>

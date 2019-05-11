@@ -2,13 +2,18 @@
 <div class="header">
   <img class="seedy" src="../../../../assets/img/Heureux.png" alt="seedy" title="seedy">
   
-  <div class="brand">
-    <img src="../../../assets/img/Logo Seul Dégradé Vert.png" title="logo" alt="logo">
-  </div>
+    <div class="back-btn" *ngIf="backBtn === true" [routerLink]='backRedirectTo'>
+        <img src="../../../assets/img/flecheGverte.png" alt="back" title="retour">
+        <em class="underlined">Retour</em>
+    </div>
 
-  <div class="menu">
-    <img (click)="menuIsHidden = false" src="../../../assets/img/LEAF_MENU.png" alt="menu" title="menu">
-  </div>
+    <div class="brand">
+        <img src="../../../assets/img/Logo Seul Dégradé Vert.png" title="logo" alt="logo">
+    </div>
+
+    <div class="menu">
+        <img (click)="menuIsHidden = false" src="../../../assets/img/LEAF_MENU.png" alt="menu" title="menu">
+    </div>
 </div>
 
 <div class="nav-menu" *ngIf="menuIsHidden === false" [@flyInOut]>

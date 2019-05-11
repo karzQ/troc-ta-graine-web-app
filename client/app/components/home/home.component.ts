@@ -11,13 +11,22 @@ import { AuthenticationService } from '../../services/auth/authentication.servic
   styleUrls: ['./home.component.less'],
   providers: [SeedyService],
   animations: [
+    trigger('flyInOut', [
+      transition('void => *', [
+        style({transform: 'translateX(100%)', opacity: 0}),
+        animate(300)
+      ]),
+      transition('* => void', [
+        animate(300, style({transform: 'translateX(100%)', opacity: 0}))
+      ])
+    ]),
     trigger('fadeInOut', [
       state('void', style({
         opacity: 0,
       })),
 
       transition('void <=> *', [
-        animate(750)
+        animate(400)
       ]),
     ]),
   ]
@@ -34,12 +43,15 @@ export class HomeComponent implements OnInit {
   menuIsHidden: boolean;
   actualDevice: string;
 
+  actualitiesAreHidden: boolean;
+
 
   ngOnInit() {
     console.log(`Est-ce un mobile ? '${this.deviceService.isMobile()}`);
     console.log(`Est-ce un pc ? '${this.deviceService.isDesktop()}`);
     console.log(`Est-ce une tablette ? '${this.deviceService.isTablet()}`);
     this.menuIsHidden = true;
+    this.actualitiesAreHidden = true;
   }
 
   redirectTo(path: string): void {

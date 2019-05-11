@@ -1,7 +1,37 @@
 <div class="home" *ngIf="deviceService.isMobile() === true" [@fadeInOut]>
-    <div class="headpage">
-        <div class="actu">
+    <div class="headpage" *ngIf="actualitiesAreHidden === true">
+        <div class="actu" (click)="actualitiesAreHidden = false">
             <img src="../../../assets/img/Actualite_ICON.png">
+        </div>
+
+        <div [ngx-scroll-to]="'#login'" class="btn arrow-down">
+            <img src="../../../assets/img/flecheBrond.png" alt="arrow-down">
+        </div>
+
+        <div class="gradient-separator"></div>
+    </div>
+
+    <div class="sec-headpage container" *ngIf="actualitiesAreHidden === false" [@flyInOut]>
+        <img class="brand" src="../../../assets/img/Logo Seul Dégradé Vert.png" alt="logo" title="Troc ta graine">
+        <div class="btn-arr" (click)="actualitiesAreHidden = true">
+            <img src="../../../assets/img/flecheDverte.png" alt="hide" title="...">
+        </div>
+        <div class="actualities row">
+            <div class="col">
+                <h4>ACTUALITES</h4>
+                <div class="actuality block">
+                    <img src="#" alt="img_act">
+                </div>
+            </div>
+        </div>
+
+        <div class="events row">
+            <div class="col">
+                <h4>EVENEMENTS</h4>
+                <div class="event block">
+                    <img src="#" alt="img_event">
+                </div>
+            </div>
         </div>
 
         <div [ngx-scroll-to]="'#login'" class="btn arrow-down">
@@ -93,7 +123,7 @@
 <div class="home" *ngIf="deviceService.isDesktop() === true" [@fadeInOut]>
     <div class="bg-cover" *ngIf="menuIsHidden === false" [@fadeInOut]></div>
 
-    <div class="navigation" *ngIf="menuIsHidden === false" [@fadeInOut]>
+    <div class="navigation" *ngIf="menuIsHidden === false" [@flyInOut]>
 
         <div class="menu" [@fadeInOut]>
             <div class="cancel-arrow" (click)='menuIsHidden = !menuIsHidden'>

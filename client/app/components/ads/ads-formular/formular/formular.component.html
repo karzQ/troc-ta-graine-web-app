@@ -1,0 +1,66 @@
+<div class="formular">
+  <div class="row">
+
+    <div class="col label">
+      <label for="troc">Troc</label>
+      <label for="don">Don</label>
+    </div>
+
+    <div class="col inputs">
+      <input class="inpt" name='troc' type="radio" [(ngModel)]='trocModel' value='false'>
+      <input class="inpt" name='don' type="radio" [(ngModel)]='donModel' value="false">
+    </div>
+
+  </div>
+
+  <div class="row informations">
+    <div class="col">
+      <p>Ta région</p>
+      <input class="inpt" type="text">
+    </div>
+
+    <div class="col">
+      <p>Ton département</p>
+      <input class="inpt" type="text">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <p>Quantité</p>
+      <input class="inpt" type="text">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col seedCard">
+      <p>FICHE GRAINE</p>
+
+      <div class="row">
+        <div class="col labels">
+          <p>Exposition</p>
+          <p>Besoin en eau</p>
+          <p>Nature du sol</p>
+          <p>Temps de pousse</p>
+          <p>Saison de semis</p>
+        </div>
+
+        <div class="col inputs">
+          <input class="inpt" name="exposition" type="text">
+          <input class="inpt" name="water" type="text">
+          <input class="inpt" name="origin-earth" type="text">
+          <input class="inpt" name="time" type="text">
+          <input class="inpt" name="season" type="text">
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <p>Description</p>
+      <input class="inpt" type="text">
+    </div>
+  </div>
+</div>
