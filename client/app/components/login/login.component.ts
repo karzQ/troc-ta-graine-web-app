@@ -24,9 +24,9 @@ export class LoginComponent implements OnInit {
     console.log(`login : ${login} (${typeof(login)}), mdp : ${password} (${typeof(password)})`);
 
     for (const user of users) {
-      if (user.email === this.login || user.username === this.login) {
+      if (user.mail === this.login) {
         console.log('Login ok');
-        if (user.password === this.password) {
+        if (user.mdp === this.password) {
           console.log('Password ok');
           return true;
         } else {

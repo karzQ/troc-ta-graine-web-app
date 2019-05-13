@@ -26,15 +26,16 @@ export class AuthenticationService {
 
     // else
     redirectUri: 'http://localhost:4200/home',
-    scope: 'openid'
+    scope: 'openid profile'
   });
 
   authenticated: boolean;
   testUser: User;
   userList: User[] = [];
+  userProfile: any;
 
   constructor(private http: HttpClient, public router: Router) {
-    this.testUser = new User(0, 'Karczinski', 'Quentin', new Date(), new Date(), 'test', 'test', 'test',
+    this.testUser = new User(0, 'Test', 'Test', new Date(), 'Test', 'test', 28000, 'test', 'test', 'maison', 'test', 'c:/', 0,
     'rt65h15erty4hn54e1rtyhn451e54trg1h56e1rt56h1e56rth456e4rt8h5e58');
     this.userList = users;
 
@@ -44,11 +45,25 @@ export class AuthenticationService {
     console.log(this.auth0);
   }
 
+  public getProfile(cb): void {
+    if (!this._accessToken) {
+      throw new Error('Access Token must exist to fetch profile');
+    }
+
+    const self = this;
+    this.auth0.client.userInfo(this._accessToken, (err, profile) => {
+      if (profile) {
+        self.userProfile = profile;
+      }
+      cb(err, profile);
+    });
+  }
+
   checkUsersCredentials(login: string, password: string): boolean {
     let userFound;
     this.userList.forEach(elem => {
-      if (elem.email === login || elem.username === login) {
-        if (elem.password === password) {
+      if (elem.mail === login) {
+        if (elem.mdp === password) {
           userFound = true;
         } else {
           console.log('Mauvais mot de passe');
@@ -63,8 +78,8 @@ export class AuthenticationService {
   }
 
   testlogin(login: string, password: string): boolean {
-    if (((login === this.testUser.email || login === this.testUser.username)
-    && password === this.testUser.password) || this.checkUsersCredentials(login, password)) {
+    if (((login === this.testUser.mail)
+    && password === this.testUser.mdp) || this.checkUsersCredentials(login, password)) {
       this.authenticated = true;
       return true;
 

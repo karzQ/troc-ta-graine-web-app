@@ -4,6 +4,9 @@ import { DeviceDetectorService } from 'ngx-device-detector';
 import { transition, trigger, state, style, animate } from '@angular/animations';
 import { SeedyService } from '../../services/seedy/seedy.service';
 import { AuthenticationService } from '../../services/auth/authentication.service';
+import { DataService } from '../../services/data/data/data.service';
+import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-home',
@@ -34,8 +37,9 @@ import { AuthenticationService } from '../../services/auth/authentication.servic
 
 export class HomeComponent implements OnInit {
 
-  constructor(private modalService: NgbModal, public deviceService: DeviceDetectorService, public seedysInteraction: SeedyService,
-      public authService: AuthenticationService) { }
+  // tslint:disable-next-line: max-line-length
+  constructor(private modalService: NgbModal, public deviceService: DeviceDetectorService, public seedysInteraction: SeedyService, public authService: AuthenticationService, private dataService: DataService, private http: HttpClient) {
+  }
 
   actualitiesList = [];
 
@@ -45,13 +49,22 @@ export class HomeComponent implements OnInit {
 
   actualitiesAreHidden: boolean;
 
+  users;
+
 
   ngOnInit() {
-    console.log(`Est-ce un mobile ? '${this.deviceService.isMobile()}`);
-    console.log(`Est-ce un pc ? '${this.deviceService.isDesktop()}`);
-    console.log(`Est-ce une tablette ? '${this.deviceService.isTablet()}`);
     this.menuIsHidden = true;
     this.actualitiesAreHidden = true;
+    this.getUsersData();
+    console.log('Users :', this.users);
+  }
+
+  getUsersData(): void {
+    this.dataService.getAllUsers().subscribe(
+      res => {
+        return this.users = res;
+      }
+    );
   }
 
   redirectTo(path: string): void {

@@ -14,12 +14,14 @@ import { AdsFormularComponent } from './components/ads/ads-formular/ads-formular
 import { RegistrationComponent } from './components/login/registration/registration.component';
 import { AuthenticationComponent } from './components/login/authentication/authentication.component';
 import { AuthenticationGuard } from './guards/authentication.guard';
+import { AccountComponent } from './components/account/account.component';
 
 export const routes: Routes = [
     { path: '', children: [
         { path: '', redirectTo: 'home', pathMatch: 'full'  },
         { path: 'home', component: HomeComponent },
         { path: 'about', component: AboutComponent },
+        { path: 'account', component: AccountComponent },
         { path: 'login', component: LoginComponent, children: [
             { path: '', redirectTo: 'auth', pathMatch: 'full'},
             { path: 'auth', component: AuthenticationComponent },

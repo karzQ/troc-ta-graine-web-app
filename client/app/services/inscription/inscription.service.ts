@@ -13,17 +13,17 @@ export class InscriptionService {
   step: number;
 
   constructor() {
-     this.newUser = new User(0, '', '', new Date(), new Date(), '', '', '', '');
+    this.newUser = new User(0, 'Test', 'Test', new Date(), 'Test', 'test', 28000, 'test', 'test', 'maison', 'test', 'c:/', 0,
+    'rt65h15erty4hn54e1rtyhn451e54trg1h56e1rt56h1e56rth456e4rt8h5e58');
      this.step = 0 ;
   }
 
   setUserCredentials(data): void {
     if (data) {
-      this.newUser.email = data[0];
-      this.newUser.username = data[1];
-      this.newUser.password = data[2];
+      this.newUser.mail = data[0];
+      this.newUser.mdp = data[1];
 
-      if (this.newUser.email !== undefined && this.newUser.password !== undefined && this.newUser.username !== undefined) {
+      if (this.newUser.mail !== undefined && this.newUser.mdp) {
         this.settedCredentials = true;
       }
     } else {
@@ -35,12 +35,12 @@ export class InscriptionService {
   setUserPersonalDatas(data): void {
     if (data) {
       this.newUser.id = this.users.length;
-      this.newUser.lastName = data[0];
-      this.newUser.firstName = data[1];
-      this.newUser.birthDate = data[2];
+      this.newUser.nom = data[0];
+      this.newUser.prenom = data[1];
+      this.newUser.dateNaissance = data[2];
 
       // tslint:disable-next-line:max-line-length
-      if (this.newUser.id !== undefined && this.newUser.lastName !== undefined && this.newUser.firstName !== undefined && this.newUser.birthDate !== undefined) {
+      if (this.newUser.id !== undefined && this.newUser.nom !== undefined && this.newUser.prenom !== undefined && this.newUser.dateNaissance !== undefined) {
         this.settedPersonal = true;
       }
       this.settedPersonal = true;

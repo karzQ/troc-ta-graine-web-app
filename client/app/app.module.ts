@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 import { NgbModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 import { DeviceDetectorModule } from 'ngx-device-detector';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 // Components
 import { AppComponent } from './app.component';
@@ -33,16 +34,18 @@ import { AdsListComponent } from './components/ads/ads-list/ads-list.component';
 import { AdsFormularComponent } from './components/ads/ads-formular/ads-formular.component';
 import { AuthenticationComponent } from './components/login/authentication/authentication.component';
 import { CallbackComponent } from './components/callback/callback.component';
-
-// Services
-import { AuthenticationService } from './services/auth/authentication.service';
-import { UserService } from './services/data/user/user.service';
 import { TrocComponent } from './components/home/troc/troc.component';
 import { SocialMediaComponent } from './components/home/social-media/social-media.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ListComponent } from './components/ads/ads-list/list/list.component';
 import { DetailComponent } from './components/ads/ads-list/detail/detail.component';
 import { FormularComponent } from './components/ads/ads-formular/formular/formular.component';
+
+// Services
+import { AuthenticationService } from './services/auth/authentication.service';
+import { DataService } from './services/data/data/data.service';
+import { InMemoryDataService } from './services/in-memory-data.service';
+import { ForumComponent } from './components/forum/forum.component';
 
 @NgModule({
   declarations: [
@@ -73,6 +76,7 @@ import { FormularComponent } from './components/ads/ads-formular/formular/formul
     ListComponent,
     DetailComponent,
     FormularComponent,
+    ForumComponent,
   ],
 
   imports: [
@@ -85,6 +89,9 @@ import { FormularComponent } from './components/ads/ads-formular/formular/formul
     NgbTooltipModule,
     NgbModule.forRoot(),
     ScrollToModule.forRoot(),
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, {dataEncapsulation: false}
+    )
   ],
 
   exports: [
@@ -92,7 +99,7 @@ import { FormularComponent } from './components/ads/ads-formular/formular/formul
 
   providers: [
     AuthenticationService,
-    UserService,
+    DataService,
   ],
 
   bootstrap: [AppComponent]
